@@ -365,8 +365,10 @@ Amexio API Angular 6 API for your Web and Smart Device Apps. Completely open sou
   </amexio-borderlayout>
 <!--<app-notification></app-notification>-->
   </div>
+  <platform-notification></platform-notification>
 
- `,
+
+  `,
   styles: [
     `
     .dialogue-middle {

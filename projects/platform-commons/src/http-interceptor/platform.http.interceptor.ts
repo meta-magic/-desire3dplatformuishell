@@ -12,8 +12,7 @@ export const COOKIE_NAME = TOKENKEY;
 export class CommonHttpInterceptor implements HttpInterceptor {
   constructor(private cookieService: CookieService) {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
-    console.log('interceptor');
+    console.log('interceptor' + req);
     const changedReq = req.clone({headers : req.headers.set(TOKENKEY, this.getTokenCookieValue())});
     return next.handle(changedReq);
   }

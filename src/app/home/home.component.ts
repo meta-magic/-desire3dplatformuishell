@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
    public _notificationService:NotificationService,
     private http: HttpClient
   ) {
-    debugger;
     this.fullscreenCheck = this.checkFullScreen.bind(this);
     this.msgService.getMessage(this.fullscreenCheck);
     this.getProjectName = this.getProjectData.bind(this);

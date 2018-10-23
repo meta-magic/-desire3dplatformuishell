@@ -7,6 +7,7 @@ import {NotificationService} from "../notification-service/notification.service"
 @Component({
   selector: 'platform-notification',
   template:`
+    {{_notificationService.getNotificationData()}}
     <amexio-notification
       [data]="_notificationService.getNotificationData()"
       [vertical-position]="'top'"
@@ -33,5 +34,6 @@ export class PlatformNotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
   }
 }

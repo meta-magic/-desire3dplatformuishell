@@ -77,9 +77,6 @@
       </amexio-button>
     </amexio-action>
   </amexio-dialogue>
-
-
-
   <amexio-dialogue  [(show)]="showMigratedStatusDialogue"
                     [button-size]="'medium'"
                     [title]="'Confirm'"
@@ -112,7 +109,6 @@
                (actionStatus)="checkTaskStatus($event)"
                (close)="confirmTaskdialogue = !confirmTaskdialogue">
 </amexio-dialogue>
-<!--<app-notification></app-notification>-->
 <amexio-row>
     <amexio-column [size]="12" [style.padding-top.px]="paddingtop">
         <div class="route-container">
@@ -314,4 +310,3 @@
 </amexio-row>
 
 
-<platform-notification></platform-notification>

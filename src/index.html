@@ -1,14 +1,44 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Desire3duishell</title>
-  <base href="/">
+  <title>Desire 3d - Amexio Canvas</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+    window.onbeforeunload = function() {
+      return "There are unsaved changes. Leave now?";
+    }
+  </script>
+  <script type="text/javascript">
+    (function() { var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = '//api.usersnap.com/load/b95d0c40-abb4-437d-9b6a-b81b4fb10f57.js';
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+  </script>
 
+  <script type="text/javascript">
+    // Override Application console [logs,errors,warning]
+    var consoleHolder = console;
+
+    function debug(bool) {
+      if (!bool) {
+        consoleHolder = console;
+        console = {};
+        Object.keys(consoleHolder).forEach(function(key) {
+          console[key] = function() {};
+        })
+      } else {
+        console = consoleHolder;
+      }
+    }
+    debug(true); // <-- can toggle from here
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-  <app-root></app-root>
+<app-root></app-root>
 </body>
+
 </html>

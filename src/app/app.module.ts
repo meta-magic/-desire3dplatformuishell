@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import {AmexioFormsModule, AmexioPaneModule, AmexioWidgetModule} from 'amexio-ng-extensions';
 import {FormsModule} from '@angular/forms';
 import {AppRouting} from './app.routing';
+import {PlatformCommonsModule} from 'platform-commons';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,  FormsModule,
+    BrowserModule,  FormsModule, PlatformCommonsModule.forRoot(),
     AppRouting,
     AmexioWidgetModule, AmexioFormsModule, AmexioPaneModule
   ],

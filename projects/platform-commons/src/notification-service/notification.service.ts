@@ -66,6 +66,7 @@ export class NotificationService implements OnInit {
   }
 
   setErrorData(data: any) {
+    debugger;
     this.color = 'red';
     this.icon = 'fa fa-times-circle-o';
     this.notificationData.push(data);
