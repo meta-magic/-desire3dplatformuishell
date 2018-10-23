@@ -2,16 +2,14 @@ import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import {AmexioWidgetModule} from 'amexio-ng-extensions';
 import { RouterModule, Routes } from '@angular/router';
-import {NotificationComponent} from '../notification.component';
 import { CommonModule } from '@angular/common';
 import{HelpComponent} from '../help/help.component';
-import {PlatformCommmonsModule, UserAuthenticGuard} from 'platform-commons';
 import {RouteComponent} from '../route.component';
+import {PlatformCommonsModule, UserAuthenticGuard} from "platform-commons";
 const routes: Routes = [
-  {path: '', component: HomeComponent,
-    children: [
+  {path: '', component: HomeComponent
+  /*  children: [
        {
-        // path:'project',component: HomeComponent
      path: 'project', canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/project-ms/project.creation.module#ProjectMSWrapperModule'
       },
       {
@@ -23,17 +21,17 @@ const routes: Routes = [
    {
     path: 'codepipeline' , canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/codepipeline-ms/codepipeline.wrapper.module#CodePipeLineWrapperModule'
   }
-    ]
+    ]*/
   }
 ];
 
 
 @NgModule({
-  imports: [AmexioWidgetModule, CommonModule, PlatformCommmonsModule.forRoot(),
+  imports: [AmexioWidgetModule, CommonModule, PlatformCommonsModule.forRoot(),
  RouterModule.forChild(routes) ],
   exports: [ RouterModule ],
   entryComponents : [RouteComponent],
-  declarations: [HomeComponent, HelpComponent, NotificationComponent, RouteComponent],
+  declarations: [HomeComponent, HelpComponent, RouteComponent],
   providers: []
 
 })

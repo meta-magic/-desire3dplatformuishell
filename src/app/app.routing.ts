@@ -15,10 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'home', canLoad: [UserAuthenticGuard], loadChildren: './home/home.module#HomeModule',
-  },
-  {
-    path: 'user' , loadChildren : './wrapper-modules/user-ms/use.ms.module#UserMSWrapperModule'
   }
+  /*{
+    path: 'user' , loadChildren : './wrapper-modules/user-ms/use.ms.module#UserMSWrapperModule'
+  }*/
 ];
 
 @NgModule({

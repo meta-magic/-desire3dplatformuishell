@@ -1,16 +1,15 @@
 /**
  * Created by pratik on 22/2/18.
  */
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AfterViewInit, Component, ViewChild} from "@angular/core";
 import { MessagingService } from "platform-commons";
-import { OnInit, Renderer2, ViewChildren, QueryList } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { RouteComponent } from "../route.component";
-import { LocalStorageService } from "platform-commons";
-import { CookieService } from "platform-commons";
-import { NotificationService } from "platform-commons";
+import { LocalStorageService, NotificationService } from "platform-commons";
 import { AmexioNavBarComponent } from "amexio-ng-extensions";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: "home",
@@ -56,12 +55,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     public msgService: MessagingService,
     private _route: Router,
     private ls: LocalStorageService,
-    private route: ActivatedRoute,
     private cookieService: CookieService,
    public _notificationService:NotificationService,
-    private renderer: Renderer2,
     private http: HttpClient
   ) {
+    debugger;
     this.fullscreenCheck = this.checkFullScreen.bind(this);
     this.msgService.getMessage(this.fullscreenCheck);
     this.getProjectName = this.getProjectData.bind(this);
@@ -359,7 +357,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
                  this.closeTabscall()
                 this.showtask();
                 }
-               
+
               } else {
                 this.projectname = projectdata.response.projectName;
                 this.projectSelectedFlag = true;

@@ -4,9 +4,8 @@ import {Router, Event,
   NavigationEnd,
   NavigationError,
   NavigationStart} from "@angular/router";
-import { HttpClient } from '@angular/common/http';
-import {CookieService} from 'platform-commons';
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
     selector : 'route-component',
@@ -66,13 +65,13 @@ export class RouteComponent implements OnInit{
     this.confirmdialogue=true;
    this.sessionMsg='Session time out, Please login again'
     }
-        
+
     }
  okWarningBtnClick() {
      this.confirmdialogue=false;
     this._router.navigate(['login']);
           }
-    
+
 
 ngOnInit(){
 }

@@ -10,10 +10,11 @@ import {CommonHttpInterceptor} from './http-interceptor/platform.http.intercepto
 import {RestCallService} from './rest-call-service/restcall.service';
 import {CookieService} from 'ngx-cookie-service';
 import {PlatformNotificationComponent} from './platform-notification/platform.notification.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
-    AmexioWidgetModule, HttpClientModule
+    CommonModule, AmexioWidgetModule, HttpClientModule
   ],
   declarations: [PlatformNotificationComponent],
   exports: [PlatformNotificationComponent]

@@ -4,12 +4,12 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LocalStorageService, LoaderService, CookieService, NotificationService } from 'platform-commons';
+import { LocalStorageService, LoaderService, NotificationService } from 'platform-commons';
+import {CookieService} from 'ngx-cookie-service';
 import { DOCUMENT } from '@angular/platform-browser';
 @Component({
   selector: 'auth-login',
-  template: `
-
+  template: `    
   <amexio-nav [logo]="'assets/auth_images/logo.png'" (onNavLogoClick)="onMetamagicClick()">
    <amexio-nav-item position-right [type]="'link'" [title]="'Home'" [icon]="'fa fa-home fa-fw fa-lg'"
       (onNavItemClick)="homeLink('https://amexio.tech/')">
@@ -363,7 +363,7 @@ Amexio API Angular 6 API for your Web and Smart Device Apps. Completely open sou
 
   </amexio-borderlayout-item>
   </amexio-borderlayout>
-<app-notification></app-notification>
+<!--<app-notification></app-notification>-->
   </div>
 
  `,
@@ -415,7 +415,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService,
+    private _cookieService: CookieService,
     private ls: LocalStorageService,
     private router: Router,
     public loaderService: LoaderService,
@@ -533,7 +533,7 @@ export class LoginComponent implements OnInit {
     ];
   }
   ngOnInit() {
-    if (this.cookieService.get('tokenid')) {
+    if (this._cookieService.get('tokenid')) {
       this.router.navigate(['home']);
     } else {
       this.router.navigate(['login']);
@@ -590,12 +590,6 @@ export class LoginComponent implements OnInit {
       window.open('https://plus.google.com/104840532038625549863');
     }
   }
-  // validateFields() {
-  //   if (this.login.loginId == null && this.login.loginId == '') {
-  //     this.msgData.push('Enter a valid login id');
-  //     return;
-  //   }
-  // }
 
   //Back the window to user id window
   backFromPassword(data: any) {
@@ -612,11 +606,6 @@ export class LoginComponent implements OnInit {
     this.forgotPasswordScreen = false;
     this.newPasswordScreen = false;
   }
-  // To Close Window
-  // okErrorBtnClick() {
-  //   this.isValidate = true;
-  //   this.msgData = [];
-  // }
 
   //THIS METHOD USED FOR VALIDATE LOGIN ID
   validateLoginId(data: any) {
@@ -640,11 +629,7 @@ export class LoginComponent implements OnInit {
             response = res;
           },
           (error: any) => {
-            this.msgData.push('Unable to connect to server');
-            this._notificationService.showerrorData(
-              'Error Message',
-              this.msgData
-            );
+            this._notificationService.setErrorData('Unable to connect to server');
           },
           () => {
             if (response.success) {
@@ -652,26 +637,20 @@ export class LoginComponent implements OnInit {
               this.loginScreen = false;
               this.passwordScreen = true;
             } else {
-              this.msgData.push(response.errorMessage);
-              this._notificationService.showerrorData(
-                'Error Message',
-                this.msgData
-              );
+              this._notificationService.setErrorData(response.errorMessage);
               this.asyncFlag = false;
             }
           }
         );
     } else {
-      this.msgData = [];
-      this.msgData.push('Enter a valid login id');
-      this._notificationService.showerrorData('Error Message', this.msgData);
+      this._notificationService.setErrorData('Enter valid login id');
     }
   }
   // DO LOGIN HERE
   doLogin(data: any) {
     let response: any;
     if (this.login.password == null && this.login.password == '') {
-      this.msgData.push('Enter a password.');
+      this._notificationService.setErrorData('Enter a password.');
       return;
     } else {
       this.loginSyncFlag = true;
@@ -685,11 +664,7 @@ export class LoginComponent implements OnInit {
             response = res;
           },
           (error: any) => {
-            this.msgData.push('Unable to connect to server');
-            this._notificationService.showerrorData(
-              'Error Message',
-              this.msgData
-            );
+            this._notificationService.setErrorData('Unable to connect to server');
             this.loaderService.hideLoader();
           },
           () => {
@@ -700,18 +675,14 @@ export class LoginComponent implements OnInit {
                 // this._notificationService.showSuccessData(
                 //   this.notificationMessageData
                 // );
-                this.cookieService.set('tokenid', response.response.tokenid);
+                this._cookieService.set('tokenid', response.response.tokenid);
                 this.router.navigate(['home']);
                 this.loaderService.hideLoader();
                 this.login = new Login();
                 this.getPlatformInfo();
               }
             } else {
-              this.msgData.push(response.errorMessage);
-              this._notificationService.showerrorData(
-                'Error Message',
-                this.msgData
-              );
+              this._notificationService.setErrorData(response.errorMessage);
               this.loaderService.hideLoader();
               this.loginSyncFlag = false;
             }
@@ -748,12 +719,7 @@ export class LoginComponent implements OnInit {
             response = res;
           },
           (error: any) => {
-            this.msgData.push('Unable to connect to server');
-            this._notificationService.showerrorData(
-              'Error Message',
-              this.msgData
-            );
-            // this.isValidate = false;
+            this._notificationService.setErrorData('Unable to connect to server');
             this.syncSendTonen = false;
             passwordScreenFlag = true;
           },
@@ -772,21 +738,13 @@ export class LoginComponent implements OnInit {
               //this.login.password = '';
               //this.cardHeader = 'Canvas : Sign In Your Account';
             } else {
-              this.msgData.push(response.errorMessage);
-              this._notificationService.showerrorData(
-                'Error Message',
-                this.msgData
-              );
+              this._notificationService.setErrorData(response.errorMessage);
               this.syncSendTonen = false;
-              // this.isValidate = false;
             }
           }
         );
     } else {
-      this.msgData.push('Enter a valid login id');
-      this._notificationService.showWarningData(this.msgData);
-      // this.isValidate = false;
-      // return;
+      this._notificationService.setWarningData('Enter a valid login id');
     }
   }
 
@@ -795,10 +753,7 @@ export class LoginComponent implements OnInit {
     this.changePassAsyncFlag = true;
     let response: any;
     if (!this.passwordModel.token) {
-      // this.isValidate = false;
-      this.msgData = [];
-      this.msgData.push('Token id should not be null.');
-      this._notificationService.showWarningData(this.msgData);
+      this._notificationService.setWarningData('Token id should not be null.');
       this.changePassAsyncFlag = false;
     } else if (
       (this.passwordModel.newPassword &&
@@ -808,20 +763,12 @@ export class LoginComponent implements OnInit {
         this.passwordModel.confirmPassword &&
         this.passwordModel.newPassword.length > 32)
     ) {
-      // this.isValidate = false;
-      this.msgData = [];
-      this.msgData.push(
-        'Password length shuold be between 6 to 32 characters.'
-      );
-      this._notificationService.showWarningData(this.msgData);
+      this._notificationService.setWarningData('Password length shuold be between 6 to 32 characters.');
       this.changePassAsyncFlag = false;
     } else if (
       this.passwordModel.newPassword != this.passwordModel.confirmPassword
     ) {
-      // this.isValidate = false;
-      this.msgData = [];
-      this.msgData.push('Password and Confirm password is not match.');
-      this._notificationService.showWarningData(this.msgData);
+      this._notificationService.setWarningData('Password and Confirm password is not match.');
       this.changePassAsyncFlag = false;
     } else {
       const requestJson = {
@@ -836,13 +783,7 @@ export class LoginComponent implements OnInit {
             response = res;
           },
           (error: any) => {
-            this.msgData = [];
-            this.msgData.push('Unable to connect to server');
-            this._notificationService.showerrorData(
-              'Error Message',
-              this.msgData
-            );
-            // this.isValidate = false;
+            this._notificationService.setErrorData('Unable to connect to server');
             this.changePassAsyncFlag = false;
           },
           () => {
@@ -857,12 +798,7 @@ export class LoginComponent implements OnInit {
               this.passwordModel = new PasswordModel();
             } else {
               // this.isValidate = false;
-              this.msgData = [];
-              this.msgData.push(response.errorMessage);
-              this._notificationService.showerrorData(
-                'Error Message',
-                this.msgData
-              );
+              this._notificationService.setErrorData(response.errorMessage);
               this.changePassAsyncFlag = false;
             }
           }

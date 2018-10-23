@@ -3,4 +3,7 @@ import {AuthMsUiModule} from 'auth-ms-ui';
 @NgModule({
  imports: [AuthMsUiModule]
 })
-export class AuthWrapperModule { }
+export class AuthWrapperModule {
+  constructor(){
+  }
+}

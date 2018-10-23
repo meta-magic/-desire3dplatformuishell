@@ -1,36 +1,35 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import { AmexioWidgetModule } from 'amexio-ng-extensions';
-import {MessagingService} from './module-comunicator/module.message.communicator';
-import {LoaderService} from './loader-service/loader.service';
-import {LocalStorageService} from './local-storage-service/local.storage.service';
-import {UserAuthenticGuard} from './route-guards/session.token.guards';
-import {NotificationService} from './notification-service/notification.service';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {CommonHttpInterceptor} from './http-interceptor/platform.http.interceptor';
-import {RestCallService} from './rest-call-service/restcall.service';
+import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
-import {PlatformNotificationComponent} from './platform-notification/platform.notification.component';
+import {PlatformCommonsModule} from 'platform-commons';
+import {LoginComponent} from './login/auth.login.component';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '', component: LoginComponent
+  }
+];
+
 
 @NgModule({
   imports: [
-    AmexioWidgetModule, HttpClientModule
+   CommonModule, FormsModule, RouterModule,
+    AmexioWidgetModule, HttpClientModule,
+    PlatformCommonsModule.forRoot(),
+    RouterModule.forChild(routes)
   ],
-  declarations: [PlatformNotificationComponent],
-  exports: [PlatformNotificationComponent]
+  declarations: [LoginComponent],
+  exports: [LoginComponent]
 })
-export class PlatformCommonsModule {
+export class AuthMsUiModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PlatformCommonsModule,
-      providers: [
-        CookieService, RestCallService,
-        MessagingService, LoaderService,
-        LocalStorageService, UserAuthenticGuard,
-        NotificationService,
-        {
-          provide: HTTP_INTERCEPTORS, useClass: CommonHttpInterceptor, multi: true
-        }
-      ]
+      ngModule: AuthMsUiModule,
+      providers: [CookieService]
     };
   }
 }

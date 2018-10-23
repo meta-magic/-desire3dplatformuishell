@@ -16,6 +16,44 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "auth-ms-ui": [
+        "dist/auth-ms-ui"
+      ],
+      "auth-ms-ui/*": [
+        "dist/auth-ms-ui/*"
+      ],
+      "platform-commons": [
+        "dist/platform-commons"
+      ],
+      "platform-commons/*": [
+        "dist/platform-commons/*"
+      ],
+      "project-ms-ui": [
+        "dist/project-ms-ui"
+      ],
+      "project-ms-ui/*": [
+        "dist/project-ms-ui/*"
+      ],
+      "user-ms-ui": [
+        "dist/user-ms-ui"
+      ],
+      "user-ms-ui/*": [
+        "dist/user-ms-ui/*"
+      ],
+      "codepipeline-ms-ui": [
+        "dist/codepipeline-ms-ui"
+      ],
+      "codepipeline-ms-ui/*": [
+        "dist/codepipeline-ms-ui/*"
+      ],
+      "dna-ms-ui": [
+        "dist/dna-ms-ui"
+      ],
+      "dna-ms-ui/*": [
+        "dist/dna-ms-ui/*"
+      ]
+    }
   }
 }
