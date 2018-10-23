@@ -1,0 +1,314 @@
+<div #topnavbarid style="font-family: 'Titillium Web', sans-serif ;" >
+    <amexio-nav [enable-side-nav-position]="true" [title]="'Amexio'" [logo]="'assets/images/logos/amexio-logo.png'" (onNavTitleClick)="onTitleClick()" (onNavLogoClick)="onLogoClick()">
+        <amexio-nav-item position-right [type]="'link'" [icon]="'fa fa-pencil-square-o'" [title]="'Project'" (onNavItemClick)="onNavLinkclick(navTab)">
+        </amexio-nav-item>
+        <amexio-nav-item position-right *ngFor="let menu1 of menus" [icon]="menu1.icon" [type]="'menu'" [title]="menu1.text" [data]="menu1.childrens"
+            (onNavItemClick)="addtab(navTab,$event)">
+        </amexio-nav-item>
+        <amexio-nav-item position-right [type]="'link'" [icon]="'fa fa-user-circle'" [title]="userName">
+        </amexio-nav-item>
+        <amexio-nav-item position-right [type]="'link'" [title]="projectname" (onNavItemClick)="onPreview(navTab)">
+        </amexio-nav-item>
+
+    </amexio-nav>
+</div>
+
+<amexio-window [show-window]="showVersionWindow"
+               [closable]="true"
+               type="window"
+               [close-on-escape]="true"
+               [header]="true"
+             (close)="closeWindow()">
+             <amexio-header>
+  About
+</amexio-header>
+      <amexio-body style="width:400px">
+        <amexio-row>
+          <amexio-column [size]="4">
+          </amexio-column>
+          <amexio-column [size]="6" *ngFor="let product of productinfo">
+              <amexio-image [path]="'assets/auth_images/'+product.logo">
+              </amexio-image>
+              <br>
+              <amexio-label
+                   size="small">
+             {{product.productName}}
+              </amexio-label>
+            <br>
+            <amexio-label
+                   size="small">
+             Edition: {{product.Edition}}
+              </amexio-label>
+             <br>
+            <amexio-label
+                   size="small">
+               Version: {{  product.version}}
+              </amexio-label>
+            <br>
+              <amexio-label
+                   size="small">
+                Build No: {{  product.Build_Number}}
+              </amexio-label>
+            <br>
+             <amexio-label
+                   size="small">
+               Version Date: {{  product.Date}}
+              </amexio-label>
+            <br>
+            <br>
+             <amexio-label
+                   size="small">
+               Copyright (c) Metamagic Global Inc, NJ, USA
+              </amexio-label>
+          </amexio-column>
+          <amexio-column [size]="2">
+          </amexio-column>
+        </amexio-row>
+      </amexio-body>
+</amexio-window>
+
+  <amexio-dialogue [show-dialogue]="warningdialogue" [closable]="false" [title]="'Info'" [custom]="true" (close)="warningdialogue = !warningdialogue"
+                   [type]="'alert'">
+    <amexio-body>
+      {{projectChangeMsg}}
+    </amexio-body>
+    <amexio-action>
+      <amexio-button type="primary" (onClick)="okWarningBtnClick()" [label]="'Ok'">
+      </amexio-button>
+    </amexio-action>
+  </amexio-dialogue>
+
+
+
+  <amexio-dialogue  [(show)]="showMigratedStatusDialogue"
+                    [button-size]="'medium'"
+                    [title]="'Confirm'"
+                    [message]="'You want to migrate project?'"
+                    [message-type]="'confirm'"
+                    (actionStatus)="migrateProject($event)">
+  </amexio-dialogue>
+
+<amexio-dialogue [show-dialogue]="menuconfirmdialogue" [title]="'Confirm'" [message]="'Map menus after project migration completed'" [message-type]="'confirm'"
+    [type]="'confirm'" (actionStatus)="menucheckStatus($event)" (close)="menuconfirmdialogue = !menuconfirmdialogue">
+</amexio-dialogue>
+<amexio-dialogue [show-dialogue]="confirmdialogue" [title]="'Confirm'" [message]="'Are you sure you want to logout?'" [message-type]="'confirm'"
+    [type]="'confirm'" (actionStatus)="checkStatus($event)" (close)="confirmdialogue = !confirmdialogue">
+</amexio-dialogue>
+<amexio-dialogue [show-dialogue]="sessiondialogue" [closable]="false" [title]="'Info'" [custom]="true" (close)="sessiondialogue = !sessiondialogue"
+    [type]="'alert'">
+    <amexio-body>
+        {{sessionMsg}}
+    </amexio-body>
+    <amexio-action>
+        <amexio-button type="primary" (onClick)="okSessionBtnClick()" [label]="'Ok'">
+        </amexio-button>
+    </amexio-action>
+</amexio-dialogue>
+<amexio-dialogue [show-dialogue]="confirmTaskdialogue"
+               [title]="'Confirm'"
+               [message]="'Do you want to view created project status?'"
+               [message-type]="'confirm'"
+               [type]="'confirm'"
+               (actionStatus)="checkTaskStatus($event)"
+               (close)="confirmTaskdialogue = !confirmTaskdialogue">
+</amexio-dialogue>
+<app-notification></app-notification>
+<amexio-row>
+    <amexio-column [size]="12" [style.padding-top.px]="paddingtop">
+        <div class="route-container">
+            <div class="loadingnav" *ngIf="isRouteLoading">Loading&#8230;</div>
+            <div class="route">
+                <amexio-tab-view #navTab [closable]="false" [tab-position]="'top'" [header-align]="'left'">
+                    <amexio-tab title="Home" [active]="true" [amexio-color]="'black'">
+                       <!-- <amexio-row>
+                           <amexio-column [size] ="4">
+
+                           </amexio-column>
+                           <amexio-column [size] ="6">
+                              &nbsp; <amexio-label
+                                    size="small">
+                                        For latest feature check <a style=" cursor: pointer; text-decoration: underline;" (click)="goToHelp(navTab)">Feature Section</a> in help.
+                               </amexio-label>
+                           </amexio-column>
+                            <amexio-column [size] ="2">
+                           </amexio-column>
+                       </amexio-row> -->
+                        <amexio-row>
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/1_API.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+
+                                                <br>
+                                                <amexio-label size="medium">Amexio API Angular 5 API for your Web and Smart Device Apps.</amexio-label>
+                                                <br><br><br>
+                                                <amexio-button [label]="'API Docs'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Amexio API'" [block]="true"
+                                                    (onClick)="onImageClick('api')">
+                                                </amexio-button>
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/2_SE.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+
+                                                <br>
+                                                <amexio-label size="medium">Amexio Demo Apps with Standard Edition and 70+ supported themes.</amexio-label>
+                                                <br><br>
+                                                <amexio-button [label]="'Amexio Demo'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Amexio Demo'"
+                                                    [block]="true" (onClick)="onImageClick('sed')">
+                                                </amexio-button>
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/2.1_EE.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+                                                <br>
+                                                <amexio-label size="medium">Enterprise Edition features with examples on all the 70+ supported themes.</amexio-label>
+                                                <br><br>
+                                                <amexio-button [label]="'Enterprise Edition'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Enterprise Edition'"
+                                                    [block]="true" (onClick)="onImageClick('ee')">
+                                                </amexio-button>
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+
+                        </amexio-row>
+
+                        <amexio-row>
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/3_Source.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+                                                <br>
+                                                <amexio-label size="medium">Amexio Code is Open Sourced based on Apache 2 License.</amexio-label>
+                                                <br>
+                                                <br><br>
+                                                <amexio-button [label]="'Source Code'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Source Code'"
+                                                    [block]="true" (onClick)="onImageClick('sourcecode')">
+                                                </amexio-button>
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/4_Features.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+                                                <br>
+                                                <amexio-label size="medium">Complete List of Amexio Features that includes UI Components, Charts, Dashboards,
+                                                    Layouts etc.</amexio-label>
+                                                <br><br>
+                                                <amexio-button [label]="'Amexio Features'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Amexio Features'"
+                                                    [block]="true" (onClick)="onImageClick('features')">
+                                                </amexio-button>
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+
+                            <amexio-column [size]="4">
+                                <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
+                                    <amexio-body>
+                                        <amexio-row>
+                                            <amexio-column size="1"></amexio-column>
+                                            <amexio-column size="10">
+
+                                                <amexio-row>
+                                                    <amexio-column size="2"></amexio-column>
+                                                    <amexio-column size="8">
+                                                        <amexio-image path="assets/images/home_page_images/5_Download.jpeg" [height]="'223px'" [width]="'223px'" [filter]="'round'"></amexio-image>
+                                                    </amexio-column>
+                                                    <amexio-column size="2"></amexio-column>
+                                                </amexio-row>
+
+                                                <br>
+                                                <amexio-label size="medium">Amexio Download instructions from npm.</amexio-label>
+                                                <br><br><br>
+                                                <amexio-button [label]="'Amexio Download'" [type]="'primary'" [icon]="'fa fa-external-link-square'" [tooltip]="'Amexio Download'"
+                                                    [block]="true" (onClick)="onImageClick('download')">
+                                                </amexio-button>
+
+                                            </amexio-column>
+                                            <amexio-column size="1"></amexio-column>
+                                        </amexio-row>
+                                    </amexio-body>
+                                </amexio-card>
+                            </amexio-column>
+                        </amexio-row>
+                    </amexio-tab>
+                    <amexio-tab title="Help Center" [active]="false" [amexio-color]="'black'">
+                        <help-component></help-component>
+                    </amexio-tab>
+                </amexio-tab-view>
+            </div>
+        </div>
+    </amexio-column>
+</amexio-row>
