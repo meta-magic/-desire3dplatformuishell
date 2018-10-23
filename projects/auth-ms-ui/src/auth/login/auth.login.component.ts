@@ -322,33 +322,11 @@ Amexio API Angular 6 API for your Web and Smart Device Apps. Completely open sou
   </amexio-column>
   <amexio-column [size]="3" style="cursor: pointer;">
   <br>
-  <amexio-image  [icon-class]="'fa fa-facebook-official fa-lg'"
-      (onClick)="onIconClick('facebook')">
-        </amexio-image>
-        &nbsp;
-        <amexio-image [icon-class]="'fa fa-twitter fa-lg'"
-        (onClick)="onIconClick('twitter')">
-        </amexio-image>
-         &nbsp;
-        <amexio-image [icon-class]="'fa fa-instagram fa-lg'"
-        (onClick)="onIconClick('instagram')">
-        </amexio-image>
-         &nbsp;
-        <amexio-image [icon-class]="'fa fa-pinterest-p fa-lg'"
-        (onClick)="onIconClick('pinterest')">
-        </amexio-image>
-         &nbsp;
-         <amexio-image [icon-class]="'fa fa-linkedin fa-lg'"
-         (onClick)="onIconClick('linkedin')">
-        </amexio-image>
-         &nbsp;
-         <amexio-image [icon-class]="'fa fa-youtube-play fa-lg'"
-         (onClick)="onIconClick('youtube')">
-        </amexio-image>
-         &nbsp;
-        <amexio-image [icon-class]="'fa fa-google-plus fa-lg'"
-         (onClick)="onIconClick('google')">
-        </amexio-image>
+    <ng-container *ngFor="let media of mediaLink">
+      <amexio-image  [icon-class]="media.icon"
+                     (onClick)="onIconClick(media.url)">
+      </amexio-image>
+    </ng-container>
     </amexio-column>
     <amexio-column [size]="4">
   </amexio-column>
@@ -363,7 +341,6 @@ Amexio API Angular 6 API for your Web and Smart Device Apps. Completely open sou
 
   </amexio-borderlayout-item>
   </amexio-borderlayout>
-<!--<app-notification></app-notification>-->
   </div>
   <platform-notification></platform-notification>
 
@@ -407,13 +384,13 @@ export class LoginComponent implements OnInit {
   asyncFlag: boolean;
   syncSendTonen: boolean;
   loginSyncFlag: boolean;
-  msgData: any = [];
   notificationMessageData: any = [];
   cardHeader: string;
   newPasswordScreen: boolean;
   passwordModel: PasswordModel;
   changePassAsyncFlag: boolean;
   amexiotechmenus: any[];
+  mediaLink: any[] = [];
 
   constructor(
     private http: HttpClient,
@@ -533,6 +510,37 @@ export class LoginComponent implements OnInit {
         ]
       }
     ];
+
+    this.mediaLink = [
+      {
+        "icon": "fa fa-facebook-official fa-lg",
+        "url": "https://www.facebook.com/metamagicglobalinc"
+      },
+      {
+        "icon": "fa fa-twitter fa-lg",
+        "url": "https://twitter.com/metamagicglobal"
+      },
+      {
+        "icon": "fa fa-instagram fa-lg",
+        "url": "https://www.instagram.com/metamagicglobal"
+      },
+      {
+        "icon": "fa fa-pinterest-p fa-lg",
+        "url": "https://www.pinterest.com/metamagicglobal"
+      },
+      {
+        "icon": "fa fa-linkedin fa-lg",
+        "url": "https://www.linkedin.com/m/login/"
+      },
+      {
+        "icon": "fa fa-youtube-play fa-lg",
+        "url": "https://www.youtube.com/channel/UC1sPlg3OhP4jQ6td90kspyg"
+      },
+      {
+        "icon": "fa fa-google-plus fa-lg",
+        "url": "https://plus.google.com/104840532038625549863"
+      }
+    ];
   }
   ngOnInit() {
     if (this._cookieService.get('tokenid')) {
@@ -575,22 +583,8 @@ export class LoginComponent implements OnInit {
       window.open('https://amexio.tech');
     }
   }
-  onIconClick(iconId: string) {
-    if (iconId == 'facebook') {
-      window.open('https://www.facebook.com/metamagicglobalinc');
-    } else if (iconId == 'twitter') {
-      window.open('https://twitter.com/metamagicglobal');
-    } else if (iconId == 'instagram') {
-      window.open('https://www.instagram.com/metamagicglobal');
-    } else if (iconId == 'pinterest') {
-      window.open('https://www.pinterest.com/metamagicglobal');
-    } else if (iconId == 'linkedin') {
-      window.open('https://www.linkedin.com/m/login/');
-    } else if (iconId == 'youtube') {
-      window.open('https://www.youtube.com/channel/UC1sPlg3OhP4jQ6td90kspyg');
-    } else if (iconId == 'google') {
-      window.open('https://plus.google.com/104840532038625549863');
-    }
+  onIconClick(url: string) {
+    window.open(url);
   }
 
   //Back the window to user id window
