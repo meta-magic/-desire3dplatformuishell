@@ -1,0 +1,22 @@
+{
+    "response": {
+        "success": true,
+        "message": "Fetching  Data  Request Succeeded: State",
+        "data": [{
+            "label": "Amexio Canvas PE",
+            "product": "1",
+            "checked": false,
+            "disabled":false
+        },{
+            "label": "Amexio Canvas SE",
+            "product": "2",
+            "checked": false,
+            "disabled": true
+        }, {
+            "label": "Amexio Canvas EE",
+            "product": "3",
+            "checked": false,
+            "disabled": true
+        }]
+    }
+}

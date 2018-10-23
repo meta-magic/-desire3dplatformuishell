@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "child": [
+      {
+        "name": "rootpane",
+        "id": "28293_rootpane",
+        "child": [
+          {
+            "name": "card",
+            "id": "85299_card",
+            "child": [
+              {
+                "name": "cardheader",
+                "id": "45100_cardheader",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true
+                }
+              },
+              {
+                "name": "cardbody",
+                "id": "78397_cardbody",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true
+                }
+              },
+              {
+                "name": "cardaction",
+                "id": "40947_cardaction",
+                "child": [
+                  {
+                    "name": "button",
+                    "id": "42056_button",
+                    "child": [],
+                    "properties": {
+                      "name": "cancel",
+                      "isComponentValid": true,
+                      "label": "Cancel",
+                      "disabled": false,
+                      "errorMsg": "",
+                      "hasLabel": true,
+                      "allowBlank": true,
+                      "type": "default",
+                      "size": "default",
+                      "iconClass": "fa fa-close fa 2x",
+                      "tooltip": "button",
+                      "formBind": "",
+                      "fieldLabel": "Cancel"
+                    },
+                    "eventRelationship": {
+                      "eventDefination": []
+                    }
+                  },
+                  {
+                    "name": "button",
+                    "id": "34019_button",
+                    "child": [],
+                    "properties": {
+                      "name": "save",
+                      "isComponentValid": true,
+                      "label": "Save",
+                      "disabled": false,
+                      "errorMsg": "",
+                      "hasLabel": true,
+                      "allowBlank": true,
+                      "type": "theme-color",
+                      "size": "default",
+                      "iconClass": "fa fa-save fa 2x",
+                      "tooltip": "save",
+                      "formBind": "",
+                      "fieldLabel": "Save"
+                    },
+                    "eventRelationship": {
+                      "eventDefination": []
+                    }
+                  }
+                ],
+                "properties": {
+                  "isComponentValid": true
+                }
+              }
+            ],
+            "properties": {
+              "name": "card_6993710000",
+              "isComponentValid": true,
+              "enableHeader": true,
+              "enableFooter": true,
+              "show": true,
+              "headerAlign": "left",
+              "footerAlign": "right",
+              "customHeader": false,
+              "color": "",
+              "size": "",
+              "header": "Form Layout"
+            }
+          }
+        ],
+        "properties": {
+          "isComponentValid": true
+        },
+        "componentBehaviour": {
+          "hasModelBinding": false,
+          "hasRelationship": false,
+          "isBindingComponent": false,
+          "hasDataSource": false
+        },
+        "eventRelationship": {
+          "eventDefination": []
+        }
+      }
+    ],
+    "properties": {},
+    "dataSource": {},
+    "eventRelationship": {},
+    "name": "canvaspage",
+    "modelInfo":{
+      "models":[]
+    }
+  }
+}

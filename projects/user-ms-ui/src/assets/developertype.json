@@ -1,0 +1,16 @@
+{
+    "response": {
+        "success": true,
+        "message": "Fetching  Data  Request Succeeded: State",
+        "data": [{
+                "type": "Individual",
+                "id": "1"
+            }, {
+                "type": "Enterprise",
+                "id": "2",
+                "disabled": true
+            }
+
+        ]
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "data": [{
+            "leaf": true,
+            "text": "attribute"
+        },
+        {
+            "text": "Res",
+            "expand": true,
+            "children": [{
+                "text": "response",
+                "expand": true,
+                "children": [{
+                    "leaf": false,
+                    "text": "data",
+                    "expand": true,
+                    "children": [{
+                            "text": "First Name",
+                            "leaf": true,
+                            "type": "resp"
+                        },
+                        {
+                            "text": "Last Name",
+                            "leaf": true,
+                            "type": "resp"
+                        },
+                        {
+                            "text": "Address",
+                            "leaf": false,
+                            "expand": true,
+                            "children": [{
+                                    "text": "Address 1",
+                                    "leaf": true,
+                                    "type": "resp"
+                                },
+                                {
+                                    "text": "Address 2",
+                                    "leaf": true,
+                                    "type": "resp"
+                                },
+                                {
+                                    "text": "Pin Code",
+                                    "leaf": true,
+                                    "type": "resp"
+                                }
+                            ]
+                        }
+                    ]
+                }]
+            }]
+        },
+        {
+            "text": "Operator",
+            "expand": true,
+            "children": [{
+                    "leaf": true,
+                    "text": "+",
+                    "type": "op"
+                },
+                {
+                    "leaf": true,
+                    "text": "-",
+                    "type": "op"
+                },
+                {
+                    "leaf": true,
+                    "text": "*",
+                    "type": "op"
+                },
+                {
+                    "leaf": true,
+                    "text": "&",
+                    "type": "op"
+                },
+                {
+                    "leaf": true,
+                    "text": "=",
+                    "type": "op"
+                },
+                {
+                    "leaf": true,
+                    "text": "/",
+                    "type": "op"
+                }
+            ]
+        },
+        {
+            "text": "Local",
+            "expand": true,
+            "children": [{
+                    "leaf": true,
+                    "text": "local 1",
+                    "type": "local"
+                },
+                {
+                    "leaf": true,
+                    "text": "local 2",
+                    "type": "local"
+                },
+                {
+                    "leaf": true,
+                    "text": "local 3",
+                    "type": "local"
+                },
+                {
+                    "leaf": true,
+                    "text": "local 4",
+                    "type": "local"
+                },
+                {
+                    "leaf": true,
+                    "text": "local 5",
+                    "type": "local"
+                },
+                {
+                    "text": "First Name",
+                    "leaf": true,
+                    "type": "local"
+                }
+            ]
+        }
+    ]
+}

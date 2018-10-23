@@ -1,0 +1,17 @@
+{
+    "response": {
+        "success": true,
+        "message": "Fetching  Data  Request Succeeded: State",
+        "data": [  {
+            "label": "Droit Studio SE",
+            "product": "3",
+            "checked": false,
+            "disabled": true
+        },{
+            "label": "Droit Studio EE",
+            "product": "4",
+            "checked": false,
+            "disabled": true
+        }]
+    }
+}

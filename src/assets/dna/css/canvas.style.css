@@ -1,0 +1,471 @@
+
+/** Component validation styles **/
+
+.canvas {
+
+}
+
+.invalidStyleClass {
+  border: 0.1em dotted rgb(255, 146, 146) !important;
+}
+
+active-component{
+  border: 1px dotted blue !important;
+}
+
+.overEffect{
+  border: 2px dashed lightgrey ;
+}
+
+.drag-over-style{
+  border: 2px dashed green !important;
+}
+
+
+.validdrag{
+  border: 2px dotted green !important;
+}
+.invaliddrag{
+  border: 2px dotted red !important;
+}
+
+.arrow-show{
+  display: block;
+}
+
+.arrow-hide{
+  display: none;
+}
+/** Row & Column Style **/
+.rowstyle{
+  min-height: 70px;
+  /* padding: 10px; */
+  border: 1px dotted #dddddd;
+  background-color: white;
+}
+
+.componentStyle{
+  border: 1px dashed lightgrey!important;
+}
+.componentSelectStyle {
+  border: 2px solid blue!important;
+}
+
+.colstyle{
+  min-height: 70px;
+//padding: 10px;
+  border: 1px dotted #dddddd;
+  background-color: white;
+}
+.colstyle .col-expand{
+  display: none;
+}
+.colstyle:hover{
+
+}
+.colstyle:hover .col-expand{
+  display: block;
+}
+.colstyle .flex-col {
+  padding: 0px;
+}
+
+.drag-me-left{
+  background:
+    url(../css/left-arrow.png) left 5px bottom 5px no-repeat
+    white;
+  padding: 40px;
+  cursor: ew-resize;
+}
+
+.drag-me-right{
+  transform: scaleX(-1);
+  background:
+    url(../css/left-arrow.png) left 10px top 7px no-repeat
+    white;
+  padding: 40px;
+  cursor: ew-resize;
+}
+
+
+/**Theme overrides **/
+.container-demo {
+  margin-top: 70px;
+}
+.toggle{
+  width : 60px;
+}
+
+
+.canvas-draw-pane {
+}
+
+
+.canvas-draw-pane .card-body {
+  padding: 0px;
+}
+
+.canvas-draw-pane .card-body .card-header {
+  display: block;
+  padding: 10px;
+}
+
+.canvas-draw-pane .card-footer {
+  display: block;
+}
+
+.canvas-draw-pane .form-footer {
+  display: block;
+}
+
+.canvas-draw-pane .form-header {
+  display: block;
+}
+
+.canvas-draw-pane .flex-col {
+  padding: 0px;
+}
+
+
+
+
+.canvas-component-pane {
+}
+.canvas-component-pane .card-container {
+  border: none;
+}
+.canvas-component-pane .card-body {
+  padding: 0px;
+}
+
+.canvas-component-pane .card-body .sidenav .defaultnode {
+  padding: 5px 0px 5px 5px;
+  cursor: pointer;
+  padding-left: 100%;
+  margin-left: -100%;
+}
+
+.canvas-component-pane .card-body .sidenav .headernode {
+  padding: 5px 0px 5px 5px;
+  cursor: pointer;
+  padding-left: 100%;
+  margin-left: -100%;
+}
+
+.canvas-component-pane .card-body .sidenav .headernode .node-icon{
+  padding-right: 5px;
+}
+
+.canvas-component-pane .card-body .sidenav .defaultnode .node-icon{
+  padding-right: 5px;
+}
+
+
+
+.canvas-property-pane {
+
+}
+
+.canvas-property-pane .card-container {
+  border: none;
+}
+.canvas-property-pane .card-body {
+  padding: 0px;
+}
+.canvas-property-pane .card-body .panel{
+  padding: 0px;
+}
+
+.canvas-property-pane .card-body .property-card-style {
+  padding: 0px;
+}
+
+.canvas-property-pane .tabcontent {
+  padding: 0px;
+}
+
+.uicanvas-drawingpanel{
+  padding: 10px;
+  background-image: linear-gradient(0deg,#f5f5f5 1.1px, transparent 0), linear-gradient(90deg,#f5f5f5 1.1px, transparent 0);
+  background-size: 10px 10px;
+  background-color: #e8e8e8;
+}
+
+
+
+/*Row configuration Stytle*/
+
+
+.row-config .dialogue-sm {
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  padding-top: 12%;
+  width: 50%;
+  padding-left: 28%;
+}
+
+.row-config .dialogue-middle{
+  text-align: left;
+}
+.row-config .flex-col{
+  padding: 1%;
+}
+
+/*Bounded Context ui Styling*/
+.boundedContext {
+
+}
+
+.boundedContext-component-pane .card-body {
+  overflow-x: hidden;
+}
+
+
+
+
+
+.canvas-card{
+
+}
+.canvas-card .card-body {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+/*.canvas-card .card-header {
+  display: flex!important;
+}
+.canvas-card .card-footer {
+  display: flex!important;
+}*/
+
+.dropable-area{
+  padding: 0px 0px 20px 0px
+}
+
+
+
+/*icon hover style*/
+
+.select-icon {
+  cursor:pointer;
+  text-align: center;
+}
+.select-icon:hover{
+  background-color: lightseagreen;
+}
+
+
+/*window*/
+.window-custom{
+
+}
+
+.window-custom  .modal-window-middle {
+  height: 100%!important;
+}
+
+
+
+
+
+/*update model datagrid css*/
+
+
+.verticalList{
+  float: left;
+  padding-left: 20px;
+  list-style: none;
+}
+.popover__wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+.popover__content {
+  margin-top: 40px;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: -150px;
+  transform: translate(0,10px);
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  width: 1200px;
+  height: 70vh;
+}
+.popover__wrapper .popover__content {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0,-20px);
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+.popover__body {
+  height: 84%;
+  top: 0px;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.popover__header {
+  height: 8%;
+  top: 0px;
+  background-color: #6495ED
+}
+.popover__footer {
+  height: 8%;
+  top: 0px;
+  background-color: #6495ED;
+}
+
+.popover__float_right {
+  padding-right: 10px;
+  color: black;
+  float: right;
+  padding-top: 15px
+}
+
+.popover__float_left {
+  padding-left: 15px;
+  color: black;
+  float: left;
+  padding-top: 10px;
+}
+
+.popover__float_right_bottom {
+  padding-right: 20px;
+  float: right;
+  padding-top: 10px;
+}
+
+.popover__body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.popover__body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: #F5F5F5;
+}
+
+.popover__body::-webkit-scrollbar-thumb {
+  background-color: #1990b8;
+}
+update-model-ui-table {
+  border-collapse:collapse;
+}
+.update-model-ui-table th {
+  background-color:#BDB76B;
+  color:white;
+}
+.update-model-ui-table tr{
+  width: 100%;
+}
+.update-model-ui-table td, .update-model-ui-table th {
+  padding:5px;
+  border-bottom:1px solid #BDB76B;
+  border-right:1px solid #BDB76B;
+}
+
+
+
+
+
+/* You can add global styles to this file, and also import other style files */
+
+.canvas-behaviour-drag-area-rhs .card-header{
+  background-color: lightgrey !important;
+  color: black !important;
+}
+
+.canvas-behaviour-drag-area-rhs .card-body{
+
+
+  /* background-color: lightgrey !important;*/
+  color: black !important;
+
+}
+
+
+
+.canvas-behaviour-drag-area-lhs .card-header{
+  background-color: #4472C4 !important;
+  color: white !important;
+}
+
+
+
+/*   Notification model style  */
+
+.notification-acordian-style {
+}
+.notification-acordian-style .panel {
+  padding: 0px !important;
+}
+.notification-acordian-style .card-body {
+  padding: 0px;
+}
+.notification-acordian-style .card-container {
+  border: none;
+  box-shadow: none;
+  padding: 0px;
+}
+.notification-acordian-style .card-body {
+  padding: 0px;
+}
+
+/* Menu Builder card*/
+
+.menu-card-style .card-container .card-header {
+  padding: 10px 24px 0px 24px!important;
+}
+.menu-tree-style .card-container .card-header{
+  padding: 10px 24px 10px 24px!important;
+  display: block!important;
+}
+
+/* condition Ui*/
+.canvas-condition-pane .sidenav .headernode {
+  padding: 5px 0px 5px 5px;
+  cursor: pointer;
+  padding-left:0%;
+  margin-left: 0%;
+}
+
+.canvas-condition-pane .panel {
+  padding: 5px 5px 5px 0px!important;
+}
+
+
+/* menu-accordian-style */
+.menu-accordian-style .card-container {
+  padding: 0px!important;
+}
+
+.menu-accordian-style .card-container .card-body {
+  padding: 0px!important;
+}
+
+
+/* condition-tree-style */
+
+
+.condition-tree-style .card-container .card-header{
+  display: block!important;
+}
+
+
+
+
+/* condition-accordian-style */
+
+.condition-accordian-style .card-container {
+  padding: 0px!important;
+
+}
+
+.condition-accordian-style .card-container .card-body {
+  padding: 0px!important;
+}

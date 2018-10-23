@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "child": [
+      {
+        "name": "rootpane",
+        "id": "31232_rootpane",
+        "child": [
+          {
+            "name": "row",
+            "id": "24764_row",
+            "child": [
+              {
+                "name": "column",
+                "id": "66258_column",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true,
+                  "columnlg": 6
+                }
+              },
+              {
+                "name": "column",
+                "id": "80778_column",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true,
+                  "columnlg": 6
+                }
+              }
+            ],
+
+            "properties": {
+              "isComponentValid": true
+            }
+          },
+          {
+            "name": "row",
+            "id": "70905_row",
+            "child": [
+              {
+                "name": "column",
+                "id": "99042_column",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true,
+                  "columnlg": 6
+                }
+              },
+              {
+                "name": "column",
+                "id": "81895_column",
+                "child": [],
+                "properties": {
+                  "isComponentValid": true,
+                  "columnlg": 6
+                }
+              }
+            ],
+            "properties": {
+              "isComponentValid": true
+            }
+          }
+        ],
+        "properties": {
+          "isComponentValid": true
+        },
+        "eventRelationship": {
+          "eventDefination": []
+        }
+      }
+    ],
+    "properties": {},
+    "dataSource": {},
+    "eventRelationship": {},
+    "name": "canvaspage",
+    "modelInfo":{
+      "models":[]
+    }
+  }
+}

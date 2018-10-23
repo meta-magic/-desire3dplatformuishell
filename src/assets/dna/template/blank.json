@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "child": [
+      {
+        "name": "rootpane",
+        "id": "93291_rootpane",
+        "child": [],
+        "properties": {
+          "isComponentValid": true
+        },
+        "eventRelationship": {
+          "eventDefination": []
+        }
+      }
+    ],
+    "properties": {},
+    "dataSource": {},
+    "eventRelationship": {},
+    "name": "canvaspage",
+    "modelInfo":{
+      "models":[]
+    }
+  }
+}

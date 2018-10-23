@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "successMessage": "data fetched successfully",
+  "successCode": "data.fetch.succees",
+  "errorMessage": null,
+  "errorCode": null,
+  "errors": null,
+  "response": [
+    {
+      "text": "Language",
+      "expanded": true,
+      "children": [
+        {
+          "text": "language",
+          "expanded": false
+        },
+        {
+          "text": "checked",
+          "expanded": false
+        }
+      ]
+    }
+  ],
+  "statusCode": null
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name" : "Blank",
+    "key" : "blank",
+    "selected" : true,
+    "islayout": true
+  },
+  {
+    "name" : "Login",
+    "key" : "login",
+    "selected" : false,
+    "islayout": false
+  },
+  {
+    "name" : "Row 2 Col 2",
+    "key" : "row2_col2",
+    "selected" : false,
+    "islayout": false
+  },
+  {
+    "name" : "Form Layout",
+    "key" : "formlayout",
+    "selected" : false,
+    "islayout": false
+  },
+  {
+    "name" : "Card Layout",
+    "key" : "cardlayout",
+    "selected" : false,
+    "islayout": false
+  }
+]

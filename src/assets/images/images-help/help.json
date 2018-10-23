@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+      "image": "Amexio-Logo.jpg"
+    } ,
+    {
+        "id":"2",
+      "image": "Canvas-Code-Pipeline.png"
+    } ,
+    {
+        "id":"3",
+      "image": "Canvas-Design-Pipeline.jpg"
+    } ,
+    {
+        "id":"4",
+      "image": "Canvas-Logic-Flow.jpg"
+    } ,
+     {
+        "id":"5",
+      "image": "Canvas-Logo.jpg"
+    } ,
+     {
+        "id":"6",
+      "image": "Logic-Flow-Logo.jpg"
+    } 
+  ]

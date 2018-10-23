@@ -1,0 +1,14 @@
+{
+  "data":[{
+    "gender":"Male",
+    "genderId":"2"
+  },{
+    "gender":"Female",
+    "genderId":"1"
+  },
+  {
+    "gender":"Other",
+    "genderId":"3"
+  }
+  ]
+}

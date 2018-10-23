@@ -1,0 +1,14 @@
+{
+    "response": {
+        "success": true,
+        "message": "Fetching  Data  Request Succeeded: State",
+        "data": [{
+                "type": "Eval",
+                "id": "1"
+            }, {
+                "type": "Permanent",
+                "id": "2"
+            }
+        ]
+    }
+}

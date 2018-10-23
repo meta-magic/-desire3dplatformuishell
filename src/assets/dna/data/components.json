@@ -1,0 +1,868 @@
+{
+  "children": [
+    {
+      "text": "Layouts",
+      "icon": "fa fa-desktop fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Accordion",
+          "icon": "fa fa-bars fa-fw",
+          "link": "accordion",
+          "key": "accordion",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Border Layout",
+          "icon": "fa fa-id-card-o fa-fw",
+          "link": "border",
+          "key": "border",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Column",
+          "link": "column-demo",
+          "icon": "fa fa-columns fa-fw",
+          "key": "column",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Box",
+          "link": "box-demo",
+          "icon": "fa fa-id-card-o fa-fw",
+          "key": "box",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Card",
+          "link": "card-demo",
+          "icon": "fa fa-id-card-o fa-fw",
+          "key": "card",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Row",
+          "link": "row-demo",
+          "icon": "fa fa-bars fa-fw",
+          "key": "row",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Panels",
+      "icon": "fa fa-bars fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Form",
+          "icon": "fa fa-id-card-o fa-fw",
+          "link": "form",
+          "key": "form",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Fieldset",
+          "icon": "fa fa-id-card-o fa-fw",
+          "link": "fieldset",
+          "key": "fieldset",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Panel",
+          "icon": "fa fa-bars fa-fw",
+          "link": "panel",
+          "key": "panel",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Steps",
+          "icon": "fa fa-step-forward",
+          "key": "stepbox",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Tab",
+          "icon": "fa fa-folder fa-fw",
+          "expand": true,
+          "children": [
+            {
+              "text": "Horizontal",
+              "icon": "fa fa-indent fa-fw",
+              "key": "horizontaltabcontainer",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": true,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            },
+            {
+              "text": "Vertical",
+              "icon": "fa fa-outdent fa-fw",
+              "key": "verticaltab",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": false,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            },
+            {
+              "text": "Right-Vertical",
+              "icon": "fa fa-outdent fa-fw",
+              "key": "rightvertical",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": false,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Form Input",
+      "icon": "fa fa-clone fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Checkbox",
+          "icon": "fa fa-check-square-o fa-fw",
+          "link": "singlecheckbox-demo",
+          "key": "checkbox",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Checkbox Group",
+          "icon": "fa fa-list fa-fw",
+          "link": "checkboxgroup-demo",
+          "key": "checkboxgroup",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Date Picker",
+          "icon": "fa fa-calendar fa-fw",
+          "link": "date-picker-demo",
+          "key": "datepicker",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Time Picker",
+          "icon": "fa fa-clock-o fa-fw",
+          "link": "date-picker-demo",
+          "key": "timepicker",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "DropDown",
+          "icon": "fa fa-caret-square-o-down fa-fw",
+          "key": "dropdown",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Email Field",
+          "icon": "fa fa-envelope-o fa-fw",
+          "link": "email-demo",
+          "key": "emailinput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "File Upload",
+          "icon": "fa fa-file fa-fw",
+          "link": "fileupload-demo",
+          "key": "fileupload",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Label",
+          "icon": "fa fa-terminal",
+          "link": "label-demo",
+          "key": "label",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Number Field",
+          "icon": "fa fa-phone fa-fw",
+          "link": "number-demo",
+          "key": "numberinput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Password Field",
+          "icon": "fa fa-text-width fa-fw",
+          "link": "password-demo",
+          "key": "passwordinput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Radio Group",
+          "icon": "fa fa-stop-circle-o fa-fw",
+          "link": "radiogroup-demo",
+          "key": "radiogroup",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Rating",
+          "icon": "fa fa-star-half-empty fa-fw",
+          "link": "rating-demo",
+          "key": "rating",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Slider",
+          "icon": "fa fa-sliders fa-fw",
+          "link": "slider-demo",
+          "key": "slider",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Type Ahead",
+          "icon": "fa fa-search-minus fa-fw",
+          "link": "typeahead-demo",
+          "key": "typeahead",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Tag Field",
+          "icon": "fa fa-tags",
+          "link": "taginput-demo",
+          "key": "taginput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Text Field",
+          "link": "textinput",
+          "icon": "fa fa-file-text-o fa-fw",
+          "key": "textinput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "TextArea Field",
+          "icon": "fa fa-text-width fa-fw",
+          "link": "textarea-demo",
+          "key": "textareainput",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Toggle",
+          "icon": "fa fa-toggle-on fa-fw",
+          "link": "toggle-demo",
+          "key": "toggle",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": true,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Form Actions",
+      "icon": "fa fa-keyboard-o fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Buttons",
+          "icon": "fa fa-keyboard-o fa-fw",
+          "expand": true,
+          "children": [
+            {
+              "text": "Button",
+              "icon": "fa fa-building-o fa-fw",
+              "link": "button-demo",
+              "key": "button",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": true,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            },
+            {
+              "text": "Group",
+              "icon": "fa fa-newspaper-o fa-fw",
+              "link": "buttongroup-demo",
+              "key": "buttongroup",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": true,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            },
+            {
+              "text": "Dropdown",
+              "icon": "fa fa-building fa-fw",
+              "link": "buttondropdown-demo",
+              "key": "buttondropdown",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": true,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            },
+            {
+              "text": "Floating",
+              "icon": "fa fa-circle-o",
+              "link": "buttondropdown-demo",
+              "key": "buttonfloat",
+              "disabled": true,
+              "componentBehaviour": {
+                "hasModelBinding": false,
+                "hasRelationship": true,
+                "isBindingComponent": false,
+                "hasDataSource": false
+              }
+            }
+          ]
+        },
+        {
+          "text": "Paginator",
+          "icon": "fa fa-arrows-h fa-fw",
+          "link": "paginator-demo",
+          "key": "paginator",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Progress Bar",
+          "icon": "fa fa-spinner fa-fw",
+          "link": "progressbar-demo",
+          "key": "progress",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Data",
+      "icon": "fa fa-database fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Item Selector",
+          "icon": "fa fa-exchange fa-fw",
+          "link": "itemselector-demo",
+          "key": "itemselector",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Grid",
+          "icon": "fa fa-database fa-fw",
+          "key": "datagrid",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Tree",
+          "icon": "fa fa-tree fa-fw",
+          "link": "simple-tree",
+          "key": "tree",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "ListBox",
+          "icon": "fa fa-list fa-fw",
+          "link": "listbox-demo",
+          "key": "listbox",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        }
+      ]
+    },
+    {
+      "text": "Media",
+      "icon": "fa fa-keyboard-o fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Icon",
+          "icon": "fa fa-font-awesome",
+          "link": "icon",
+          "key": "icon",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Image",
+          "icon": "fa fa-picture-o fa-fw",
+          "link": "image-demo",
+          "key": "image",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": true,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Video Player",
+          "icon": "fa fa-video-camera fa-fw",
+          "link": "video-demo",
+          "key": "video",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Charts",
+      "icon": "fa fa-keyboard-o fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Area",
+          "icon": "fa fa-area-chart fa-fw",
+          "link": "area-chart-demo",
+          "disabled": true,
+          "key": "areachart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Bar",
+          "icon": "fa fa-bar-chart fa-fw",
+          "link": "bar-chart-demo",
+          "disabled": true,
+          "key": "barchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Bubble",
+          "icon": "fa fa-circle fa-fw",
+          "link": "bubble-chart-demo",
+          "disabled": true,
+          "key": "bubblechart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Candlestick",
+          "icon": "fa fa-stack-exchange fa-fw",
+          "link": "candlestick-chart-demo",
+          "disabled": true,
+          "key": "candlestickchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Candlestick Waterfall",
+          "icon": "fa fa-tint fa-fw",
+          "link": "candlestickwaterfall-chart-demo",
+          "disabled": true,
+          "key": "candlestickwaterfallchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Column",
+          "icon": "fa fa-columns fa-fw",
+          "link": "column-chart-demo",
+          "disabled": true,
+          "key": "columnchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Combo",
+          "icon": "fa fa-area-chart fa-fw",
+          "link": "combo-chart-demo",
+          "disabled": true,
+          "key": "combochart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Donut",
+          "icon": "fa fa-pie-chart fa-fw",
+          "link": "donut-chart-demo",
+          "disabled": true,
+          "key": "donutchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Histogram",
+          "icon": "fa fa-bars fa-fw",
+          "link": "histogram-chart-demo",
+          "disabled": true,
+          "key": "histogramchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Line",
+          "icon": "fa fa-line-chart fa-fw",
+          "link": "line-chart-demo",
+          "disabled": true,
+          "key": "linechart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Pie",
+          "icon": "fa fa-pie-chart fa-fw",
+          "link": "pie-chart-demo",
+          "disabled": true,
+          "key": "piechart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Scatter",
+          "icon": "fa fa-dot-circle-o fa-fw",
+          "link": "scatter-chart-demo",
+          "disabled": true,
+          "key": "scatterchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Timeline",
+          "icon": "fa fa-calendar fa-fw",
+          "link": "timeline-chart-demo",
+          "disabled": true,
+          "key": "timelinechart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Dashboard",
+      "icon": "fa fa-dashcube fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Gauge Chart",
+          "icon": "fa fa-tachometer fa-fw",
+          "link": "gauge-dashboard-demo",
+          "disabled": true,
+          "key": "gaugechart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": false
+          }
+        },
+        {
+          "text": "Data Points",
+          "icon": "fa fa-address-card-o fa-fw",
+          "link": "datapoint",
+          "key": "datapoint",
+          "disabled": true,
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": false,
+            "hasDataSource": false
+          }
+        }
+      ]
+    },
+    {
+      "text": "Maps",
+      "icon": "fa fa-globe fa-fw",
+      "expand": true,
+      "children": [
+        {
+          "text": "Geo Chart",
+          "icon": "fa fa-globe fa-fw",
+          "link": "geo-chart-demo",
+          "disabled": true,
+          "key": "geochart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        },
+        {
+          "text": "Tree Map",
+          "icon": "fa fa-trello fa-fw",
+          "link": "tree-map-demo",
+          "disabled": true,
+          "key": "treemapchart",
+          "componentBehaviour": {
+            "hasModelBinding": false,
+            "hasRelationship": false,
+            "isBindingComponent": true,
+            "hasDataSource": true
+          }
+        }
+      ]
+    }
+  ]
+}
