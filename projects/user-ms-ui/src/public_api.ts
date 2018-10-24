@@ -17,4 +17,4 @@ export * from './user/approval/approval.component';
 
 /* MODULE */
 
-export * from 'projects/user-ms-ui/src/user/user-ms-ui.module';
+export * from './user/user-ms-ui.module';

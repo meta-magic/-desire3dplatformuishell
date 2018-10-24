@@ -113,7 +113,7 @@ export class PasswordComponent implements OnInit {
     errorObj['data'] = [];
     errorObj.data = this.validationMsgArray;
     errorData.push(errorObj);
-    this._notificationService.setErrorData('Error Message', errorData);
+    this._notificationService.setErrorData(errorData);
   }
 
   validateFormFields() {

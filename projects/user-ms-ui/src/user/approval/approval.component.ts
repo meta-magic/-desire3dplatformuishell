@@ -145,7 +145,6 @@ import { NotificationService } from 'platform-commons';
 </amexio-tab>
             </amexio-tab-view>
     </amexio-column>
-   <app-notification></app-notification>
     </amexio-row>
     <amexio-dialogue [show-dialogue]="isValidateForm" [message-type]="'error'" [closable]="true" [title]="'Error'" [type]="'alert'" [custom]="true" (close)="isValidateForm = !isValidateForm">
 <amexio-body>
@@ -158,6 +157,7 @@ import { NotificationService } from 'platform-commons';
     </amexio-button>
 </amexio-action>
 </amexio-dialogue>
+    <platform-notification></platform-notification>
   `
 })
 export class ApprovalComponent implements OnInit {

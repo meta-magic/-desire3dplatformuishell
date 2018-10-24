@@ -143,7 +143,6 @@ import { NotificationService } from 'platform-commons';
               </amexio-body>
           </amexio-card>
       </ng-container>
-   <app-notification></app-notification>
 
   </amexio-column>
 </amexio-row>

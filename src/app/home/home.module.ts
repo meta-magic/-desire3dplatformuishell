@@ -7,21 +7,21 @@ import{HelpComponent} from '../help/help.component';
 import {RouteComponent} from '../route.component';
 import {PlatformCommonsModule, UserAuthenticGuard} from "platform-commons";
 const routes: Routes = [
-  {path: '', component: HomeComponent
-  /*  children: [
+  {path: '', component: HomeComponent,
+    children: [
+      {
+        path: 'user' , loadChildren : './../wrapper-modules/user-ms/user.ms.module#UserMSWrapperModule'
+      },
        {
      path: 'project', canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/project-ms/project.creation.module#ProjectMSWrapperModule'
       },
       {
-    path: 'designPipeline' , canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/dna-ms/dna.wrapper.module#DNAWrapperModule'
-  },
-   {
-    path: 'user' , loadChildren : './../wrapper-modules/user-ms/use.ms.module#UserMSWrapperModule'
-  },
+          path: 'designPipeline' , canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/dna-ms/dna.wrapper.module#DNAWrapperModule'
+        },
    {
     path: 'codepipeline' , canLoad: [UserAuthenticGuard], loadChildren : './../wrapper-modules/codepipeline-ms/codepipeline.wrapper.module#CodePipeLineWrapperModule'
   }
-    ]*/
+    ]
   }
 ];
 
