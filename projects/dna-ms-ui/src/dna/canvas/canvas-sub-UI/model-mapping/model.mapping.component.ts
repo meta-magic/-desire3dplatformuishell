@@ -13,7 +13,7 @@ import { EventHandlerService } from '../../canvas-service/event.service';
       [value-field]="'checked'"
       [data]="modelsData" (onSelection)="getSelectedModel($event)">
     </amexio-checkbox-group>
-    <amexio-button [label]="'Map Model To Component Field'"
+    <amexio-button [label]="'Model Binding'"
                    [type]="'green'"
                    [tooltip]="'green'"
                    [block]="true"
@@ -30,7 +30,7 @@ import { EventHandlerService } from '../../canvas-service/event.service';
       [vertical-position]="'top'"
       [horizontal-position]="'center'">
       <amexio-header>
-        Map model to component field
+        Model View Binding
       </amexio-header>
       <amexio-body>
         <amexio-row>
@@ -54,11 +54,11 @@ import { EventHandlerService } from '../../canvas-service/event.service';
             </amexio-card>
           </amexio-column>
           <amexio-column [size]="'6'">
-            <amexio-datagrid [data]="componentList" [height]="280"
+            <amexio-datagrid [enable-title-bar]="false" [data]="componentList" [height]="280"
                              [page-size]="10" >
               <amexio-data-table-column [sort]="false" [data-index]="'name'" [data-type]="'string'" [hidden]="false" [text]="'Component Fields'">
               </amexio-data-table-column>
-              <amexio-data-table-column [sort]="false" [data-index]="'model'" [data-type]="'string'" [hidden]="false" [text]="'Map Model Fields'">
+              <amexio-data-table-column [sort]="false" [data-index]="'model'" [data-type]="'string'" [hidden]="false" [text]="'Model Fields'">
                 <ng-template #amexioBodyTmpl let-column let-row="row">
                   <div (dragover)="onDragOver($event)" (drop)="onDrop($event,row)">
                     <input type="text" [attr.value]="row.model.modelFieldKey"> &nbsp; <amexio-image (onClick)="clearData(row)" [icon-class]="'fa fa-refresh'" [tooltip]="'refresh'"></amexio-image>
@@ -70,7 +70,7 @@ import { EventHandlerService } from '../../canvas-service/event.service';
         </amexio-row>
       </amexio-body>
       <amexio-action>
-        <amexio-button [type]="'theme-color'"  label="Auto Map"></amexio-button>
+        <amexio-button [type]="'theme-color'"  label="Auto Bind" [disabled]="true"></amexio-button>
         <amexio-button [type]= "'default'" label="Cancel" (onClick)="showModelWindow = false"></amexio-button>
         <amexio-button [type]="'theme-color'"  label="Save" (onClick)="showModelWindow = false"></amexio-button>
 

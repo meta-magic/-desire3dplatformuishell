@@ -11,176 +11,176 @@ import {
 @Component({
   selector: 'service-binding-component-behaviour',
   template: `
-      <amexio-window [show]="show" (showChange)="closeWindow()" [footer]="true" [vertical-position]="'center'" [horizontal-position]="'right'"
-                     [body-height]="75"  type="window" [closable]="true">
-        <amexio-header>
-          Service Definition
-        </amexio-header>
-        <amexio-body>
-          <amexio-row>
-            <amexio-column [size] =3 >
-              <amexio-new-dropdown
-                [readonly]="true"
-                [place-holder]="'Select Service'"
-                [data-reader]="'response'"
-                [field-label]="'Select Service'"
-                [display-field]="'name'"
-                [value-field]="'id'"
-                [(ngModel)]="dataSourceModel.serviceId"
-                [data]="serviceLocalData"
-                (onSingleSelect)="selectService($event)">
-              </amexio-new-dropdown>
-            </amexio-column>
-            <amexio-column [size] =3 >
-              <amexio-new-dropdown
-                [readonly]="true"
-                [place-holder]="'Select Operation'"
-                [data-reader]="'response'"
-                [field-label]="'Select Operation'"
-                [display-field]="'operationName'"
-                [value-field]="'operationId'"
-                [(ngModel)]="dataSourceModel.operationId"
-                [data]="operationLocalData"
-                (onSingleSelect)="selectOperation($event)">
-              </amexio-new-dropdown>
-            </amexio-column>
-            <amexio-column [size] =5 >
-              <amexio-text-input
-                [field-label]="'URL'" name="serviceURL"  [place-holder]="''" [disabled]="true"
-                [(ngModel)]="dataSourceModel.httpUrl" name="serviceUrl">
-              </amexio-text-input>
-            </amexio-column>
-            <amexio-column [size] =1 >
-              <amexio-text-input
-                [field-label]="'Method'" name="serviceMethod" [place-holder]="''" [disabled]="true"
-                [(ngModel)]="methodType" name="serviceMethod">
-              </amexio-text-input>
-            </amexio-column>
-          </amexio-row>
-          <amexio-row>
-            <amexio-column [size] =7 >
-              <amexio-tab-view header="Request Model" [header-align]="'right'">
-                <amexio-tab  title="Request Body"  [active]="requestBodyTabActive()"  [amexio-color]="'red'" [disabled]="requestModelData.length == 0">
-                  <amexio-tree-data-table [height]="height" [data-reader]="" [data]="requestModelData">
-                    <amexio-data-table-column [data-index]="'fieldLabel'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Name'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'fieldType'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Type'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'values'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Value'">
-                      <ng-template #amexioBodyTmpl let-row="row">
-                        <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
-                          <ul>
-                            <ng-container *ngIf="row.values.length > 0">
-                              <ng-container *ngFor="let obj of row.values" >
-                                <ng-container *ngIf="obj.type != 'operator'">
-                                   <li>{{obj.fieldLabel}}</li>
-                                </ng-container>
+    <amexio-window [show]="show" (showChange)="closeWindow()" [footer]="true" [vertical-position]="'center'" [horizontal-position]="'right'"
+                   [body-height]="75"  type="window" [closable]="true">
+      <amexio-header>
+        Service Definition
+      </amexio-header>
+      <amexio-body>
+        <amexio-row>
+          <amexio-column [size] =3 >
+            <amexio-new-dropdown
+              [readonly]="true"
+              [place-holder]="'Select Service'"
+              [data-reader]="'response'"
+              [field-label]="'Select Service'"
+              [display-field]="'name'"
+              [value-field]="'id'"
+              [(ngModel)]="dataSourceModel.serviceId"
+              [data]="serviceLocalData"
+              (onSingleSelect)="selectService($event)">
+            </amexio-new-dropdown>
+          </amexio-column>
+          <amexio-column [size] =3 >
+            <amexio-new-dropdown
+              [readonly]="true"
+              [place-holder]="'Select Operation'"
+              [data-reader]="'response'"
+              [field-label]="'Select Operation'"
+              [display-field]="'operationName'"
+              [value-field]="'operationId'"
+              [(ngModel)]="dataSourceModel.operationId"
+              [data]="operationLocalData"
+              (onSingleSelect)="selectOperation($event)">
+            </amexio-new-dropdown>
+          </amexio-column>
+          <amexio-column [size] =5 >
+            <amexio-text-input
+              [field-label]="'URL'" name="serviceURL"  [place-holder]="''" [disabled]="true"
+              [(ngModel)]="dataSourceModel.httpUrl" name="serviceUrl">
+            </amexio-text-input>
+          </amexio-column>
+          <amexio-column [size] =1 >
+            <amexio-text-input
+              [field-label]="'Method'" name="serviceMethod" [place-holder]="''" [disabled]="true"
+              [(ngModel)]="methodType" name="serviceMethod">
+            </amexio-text-input>
+          </amexio-column>
+        </amexio-row>
+        <amexio-row>
+          <amexio-column [size] =7 >
+            <amexio-tab-view header="Request Model" [header-align]="'right'">
+              <amexio-tab  title="Request Body"  [active]="requestBodyTabActive()"  [amexio-color]="'red'" [disabled]="requestModelData.length == 0">
+                <amexio-tree-data-table [height]="height" [data-reader]="" [data]="requestModelData">
+                  <amexio-data-table-column [data-index]="'fieldLabel'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Name'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'fieldType'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Type'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'values'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Value'">
+                    <ng-template #amexioBodyTmpl let-row="row">
+                      <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
+                        <ul>
+                          <ng-container *ngIf="row.values.length > 0">
+                            <ng-container *ngFor="let obj of row.values" >
+                              <ng-container *ngIf="obj.type != 'operator'">
+                                <li>{{obj.fieldLabel}}</li>
                               </ng-container>
                             </ng-container>
-                          </ul>
-                        </div>
-                      </ng-template>
-                    </amexio-data-table-column>
-                  </amexio-tree-data-table>
-                </amexio-tab>
-                <amexio-tab title="Path" [active]="pathTabActive()"  [amexio-color]="'blue'" [disabled]="pathModelData.length == 0">
-                  <amexio-tree-data-table [height]="height"  [data-reader]="" [data]="pathModelData">
-                    <amexio-data-table-column [data-index]="'fieldLabel'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Name'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'fieldType'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Type'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'values'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Value'">
-                      <ng-template #amexioBodyTmpl let-row="row">
-                        <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
-                          <ul>
-                            <ng-container *ngIf="row.values.length > 0">
-                              <ng-container *ngFor="let obj of row.values" >
-                                <ng-container *ngIf="obj.type != 'operator'">
-                                  <li>{{obj.fieldLabel}}</li>
-                                </ng-container>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </ng-template>
+                  </amexio-data-table-column>
+                </amexio-tree-data-table>
+              </amexio-tab>
+              <amexio-tab title="Path" [active]="pathTabActive()"  [amexio-color]="'blue'" [disabled]="pathModelData.length == 0">
+                <amexio-tree-data-table [height]="height"  [data-reader]="" [data]="pathModelData">
+                  <amexio-data-table-column [data-index]="'fieldLabel'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Name'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'fieldType'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Type'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'values'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Value'">
+                    <ng-template #amexioBodyTmpl let-row="row">
+                      <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
+                        <ul>
+                          <ng-container *ngIf="row.values.length > 0">
+                            <ng-container *ngFor="let obj of row.values" >
+                              <ng-container *ngIf="obj.type != 'operator'">
+                                <li>{{obj.fieldLabel}}</li>
                               </ng-container>
                             </ng-container>
-                          </ul>
-                        </div>
-                      </ng-template>
-                    </amexio-data-table-column>
-                  </amexio-tree-data-table>
-                </amexio-tab>
-                <amexio-tab title="URL Parameter" [active]="paramTabActive()"  [amexio-color]="'green'" [disabled]="paramModelData.length == 0">
-                  <amexio-tree-data-table [height]="height" [data-reader]="" [data]="paramModelData">
-                    <amexio-data-table-column [data-index]="'fieldLabel'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Name'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'fieldType'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Field Type'">
-                    </amexio-data-table-column>
-                    <amexio-data-table-column [data-index]="'values'"
-                                              [data-type]="'string'" [hidden]="false"
-                                              [text]="'Value'">
-                      <ng-template #amexioBodyTmpl let-row="row">
-                        <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
-                          <ul>
-                            <ng-container *ngIf="row.values.length > 0">
-                              <ng-container *ngFor="let obj of row.values" >
-                                <ng-container *ngIf="obj.type != 'operator'">
-                                  <li>{{obj.fieldLabel}}</li>
-                                </ng-container>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </ng-template>
+                  </amexio-data-table-column>
+                </amexio-tree-data-table>
+              </amexio-tab>
+              <amexio-tab title="URL Parameter" [active]="paramTabActive()"  [amexio-color]="'green'" [disabled]="paramModelData.length == 0">
+                <amexio-tree-data-table [height]="height" [data-reader]="" [data]="paramModelData">
+                  <amexio-data-table-column [data-index]="'fieldLabel'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Name'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'fieldType'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Field Type'">
+                  </amexio-data-table-column>
+                  <amexio-data-table-column [data-index]="'values'"
+                                            [data-type]="'string'" [hidden]="false"
+                                            [text]="'Value'">
+                    <ng-template #amexioBodyTmpl let-row="row">
+                      <div #ref style="min-height:40px;border: 2px dashed lightgrey; width: 100%;" (dragover)="dragOver($event,ref)" (dragleave)="onDragLeave(ref)" (drop)="drop($event,row,ref)">
+                        <ul>
+                          <ng-container *ngIf="row.values.length > 0">
+                            <ng-container *ngFor="let obj of row.values" >
+                              <ng-container *ngIf="obj.type != 'operator'">
+                                <li>{{obj.fieldLabel}}</li>
                               </ng-container>
                             </ng-container>
-                          </ul>
-                        </div>
-                      </ng-template>
-                    </amexio-data-table-column>
-                  </amexio-tree-data-table>
-                </amexio-tab>
-              </amexio-tab-view>
+                          </ng-container>
+                        </ul>
+                      </div>
+                    </ng-template>
+                  </amexio-data-table-column>
+                </amexio-tree-data-table>
+              </amexio-tab>
+            </amexio-tab-view>
 
-            </amexio-column>
-            <amexio-column [size] =1 >
-            </amexio-column>
-            <amexio-column [size] =4>
-              <amexio-tree-data-table [height]="44"  [data-reader]="" [data]="modelDefinationData">
-                <amexio-data-table-column [data-index]="'fieldLabel'"
-                                          [data-type]="'string'" [hidden]="false"
-                                          [text]="_sharedDataService.uiDetails.name+ ' Model Fields'">
-                  <ng-template #amexioBodyTmpl let-row="row">
-                    <div draggable="true" (dragstart)="dragStart($event,row,'local')">{{row.fieldLabel}}</div>
-                  </ng-template>
-                </amexio-data-table-column>
-              </amexio-tree-data-table>
+          </amexio-column>
+          <amexio-column [size] =1 >
+          </amexio-column>
+          <amexio-column [size] =4>
+            <amexio-tree-data-table [height]="44"  [data-reader]="" [data]="modelDefinationData">
+              <amexio-data-table-column [data-index]="'fieldLabel'"
+                                        [data-type]="'string'" [hidden]="false"
+                                        [text]="_sharedDataService.uiDetails.name+ ' Model Fields'">
+                <ng-template #amexioBodyTmpl let-row="row">
+                  <div draggable="true" (dragstart)="dragStart($event,row,'local')">{{row.fieldLabel}}</div>
+                </ng-template>
+              </amexio-data-table-column>
+            </amexio-tree-data-table>
 
-            </amexio-column>
-          </amexio-row>
-        </amexio-body>
-        <amexio-action>
-          <amexio-button
-            [label]="'Cancel'"
-            [type]="'default'"
-            [tooltip]="'Cancel'" (onClick)="closeWindow()">
-          </amexio-button>
-          <amexio-button
-            [label]="'Save'"
-            [type]="'theme-color'"
-            [tooltip]="'Save'"  (onClick)="onSave()">
-          </amexio-button>
-        </amexio-action>
-      </amexio-window>
+          </amexio-column>
+        </amexio-row>
+      </amexio-body>
+      <amexio-action>
+        <amexio-button
+          [label]="'Cancel'"
+          [type]="'default'"
+          [tooltip]="'Cancel'" (onClick)="closeWindow()">
+        </amexio-button>
+        <amexio-button
+          [label]="'Save'"
+          [type]="'theme-color'"
+          [tooltip]="'Save'"  (onClick)="onSave()">
+        </amexio-button>
+      </amexio-action>
+    </amexio-window>
 
-    `
+  `
 })
 export class ServiceBidingComponent implements OnInit {
   @Input() show: boolean;
@@ -400,7 +400,7 @@ export class ServiceBidingComponent implements OnInit {
   setResponseModelData(outputs: any) {
     if (this.serviceMetadata.parentRef.hasOwnProperty('responseModel')) {
       this.serviceMetadata.parentRef.responseModel = JSON.parse(JSON.stringify(this.serviceMetadata.parentRef.responseModel.concat(
-          outputs
+        outputs
       )));
     } else {
       this.serviceMetadata.parentRef['responseModel'] = [];
@@ -450,12 +450,14 @@ export class ServiceBidingComponent implements OnInit {
     if (dragObject.hasOwnProperty('inputParamTypeId')) {
       object['inputParamTypeId'] = dragObject.inputParamTypeId;
     } else object['inputParamTypeId'] = null;
-    if (row.values.length >= 1) {
-      let operatorObject: any = {};
-      operatorObject['key'] = '+';
-      operatorObject['type'] = 'operator';
-      row.values.push(operatorObject, object);
-    } else row.values.push(object);
+    /* if (row.values.length >= 1) {
+     let operatorObject: any = {};
+     operatorObject['key'] = '+';
+     operatorObject['type'] = 'operator';
+     row.values.push(operatorObject, object);
+     } else row.values.push(object);*/
+    row.values = [];
+    row.values.push(object)
     ref.style.border = '2px dashed lightgrey';
   }
 
@@ -469,9 +471,9 @@ export class ServiceBidingComponent implements OnInit {
 
     this.onClick.emit({
       serviceData:
-        this.dataSourceModel.serviceName +
-        ' ' +
-        this.dataSourceModel.operationName
+      this.dataSourceModel.serviceName +
+      ' ' +
+      this.dataSourceModel.operationName
     });
     this.closeWindow();
   }
