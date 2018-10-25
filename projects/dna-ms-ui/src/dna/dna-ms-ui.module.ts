@@ -232,16 +232,14 @@ import { CreateModelComponent } from './canvas/canvas-sub-UI/create-model-UI/cre
 import { ModelMapComponent } from './canvas/canvas-sub-UI/model-mapping/model.mapping.component';
 import {CanvasNotificationComponent} from './canvas/canvas-sub-UI/notification/notification.component';
 import {LiveCodeComponent} from './preview/livecodecomponent';
-import {ConditionBlockBehaviour1} from './canvas/event-relationship/relationship-component/conditionblock.component';
 import {ElseBlockBehaviour} from './canvas/event-relationship/relationship-component/elseblock.component';
 import {ElseIfBlockBehaviour} from './canvas/event-relationship/relationship-component/elseIfblock.component';
-import {IfBlockBehaviour} from './canvas/event-relationship/relationship-component/ifblock.component';
 import {ConditionTreeComponent} from './canvas/event-relationship/condition/condition.tree.component';
 import {ConditionBindingComponent} from './canvas/event-relationship/condition/condition.component';
 import {PlatformCommonsModule} from 'platform-commons';
 import {CookieService} from 'ngx-cookie-service';
-import {ConBehaviourComponent} from './canvas/event-relationship/relationship-component/conblock.component';
-
+import {ConditionBlockBehaviour} from "./canvas/event-relationship/relationship-component/ifblock.component";
+import {IfBlockBehaviour} from "./canvas/event-relationship/relationship-component/condition.block.component";
 
 
 
@@ -303,8 +301,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    ConBehaviourComponent,
-
     /* BOUNDED CONTEXT AND DOMAIN UI COMPONENTS */
     BoundedContextComponent,
     BoundedContextDefinitionComponent,
@@ -563,16 +559,15 @@ const routes: Routes = [
 
     /*CONDITION UI*/
 
-    ConditionBlockBehaviour1,
     ElseBlockBehaviour,
     ElseIfBlockBehaviour,
-    IfBlockBehaviour,
+    ConditionBlockBehaviour,
     ConditionBindingComponent,
-    ConditionTreeComponent
+    ConditionTreeComponent,
+    IfBlockBehaviour
 
   ],
   exports: [
-    ConBehaviourComponent,
     /* BOUNDED CONTEXT AND DOMAIN UI COMPONENTS */
     LiveCodeComponent,
     BoundedContextComponent,
@@ -829,25 +824,22 @@ const routes: Routes = [
 
     /*CONDITION UI*/
 
-    ConditionBlockBehaviour1,
     ElseBlockBehaviour,
     ElseIfBlockBehaviour,
-    IfBlockBehaviour,
+    ConditionBlockBehaviour,
     ConditionBindingComponent,
-    ConditionTreeComponent
+    ConditionTreeComponent,
 
 
-
-
+    IfBlockBehaviour
   ],
   entryComponents: [
-    ConBehaviourComponent,
-    ConditionBlockBehaviour1,
     BehaviourComponent,
     NavigateBlockBehaviour,
     ServiceBlockBehaviour,
     UpdateModelBlockBehaviour,
     NotificationBlockBehaviour,
+    IfBlockBehaviour,
 
     CanvasComponent,
     CanvasTextInputComponent,
@@ -1046,9 +1038,20 @@ const routes: Routes = [
 
     ElseBlockBehaviour,
     ElseIfBlockBehaviour,
-    IfBlockBehaviour,
+    ConditionBlockBehaviour,
     ConditionBindingComponent,
     ConditionTreeComponent
+  ],
+  providers: [
+    BoundedContextDefinitionService,
+    EventHandlerService,
+    RestCallService,
+    EditorStateService,
+    DragDropEventService,
+    EventRelationshipService,
+    NotificationService,
+    SharedDataService,
+    CookieService
   ]
 })
 export class DnaMsUiModule {

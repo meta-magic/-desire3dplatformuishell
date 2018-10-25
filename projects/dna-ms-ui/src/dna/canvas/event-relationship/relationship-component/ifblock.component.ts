@@ -16,20 +16,45 @@ import { EventRelationshipService } from '../../canvas-service/event-relationshi
 import {NotificationService} from "../../canvas-service/notification.service";
 
 @Component({
-  selector: 'if-behaviour',
+  selector: 'condition-behaviour',
   template: `
     <table style="color: #000000; " (drop)="onDrop($event)" (dragover)="onDragOver($event)">
       <tr>
-        <td colspan="1" style="vertical-align:top;">
-          <amexio-label>Then</amexio-label>
+        <td colspan="2">
+          <amexio-label>If:</amexio-label>
+          <amexio-label font-color="green">{{title}} </amexio-label>
+          <amexio-label>Is Matched</amexio-label>
+          <amexio-label (onClick)="this.showConditionBindingWindow = true" [enable-click]="true" *ngIf="body[0].instance.metadata.defination.length > 0" size="small-bold" font-color="red">
+            update /
+          </amexio-label>
+          <amexio-label (onClick)="showConditionBindingWindow = true" [enable-click]="true" *ngIf="body[0].instance.metadata.defination.length == 0" size="small-bold" font-color="red">
+            add /
+          </amexio-label>
+          <amexio-label (onClick)="removeServiceBlock()" [enable-click]="true"  size="small-bold" font-color="red">
+            remove
+          </amexio-label>&nbsp;
+          <amexio-label (onClick)="addBlock('elseif')" [enable-click]="true"  size="small-bold" font-color="green">
+            Else If /
+          </amexio-label>
+
+          <amexio-label (onClick)="addBlock('else')" [enable-click]="true"  size="small-bold" font-color="green">
+            Else
+          </amexio-label>
         </td>
-        <td width="100%" class="curly-braces">
+      </tr>
+      <tr>
+        <td colspan="1" style="vertical-align:top;">
+        </td>
+        <td width="100%">
           <div class="curly-braces-contains">
             <ng-template #target></ng-template>
           </div>
         </td>
       </tr>
     </table>
+    <ng-container *ngIf="showConditionBindingWindow">
+      <condition-binding-component-behaviour (onClick)="getOnClick($event)" [(show)]="showConditionBindingWindow" [conditionMetadata]="body[0].instance.metadata"></condition-binding-component-behaviour>
+    </ng-container>
 
   `,
   styles: [
@@ -47,9 +72,10 @@ import {NotificationService} from "../../canvas-service/notification.service";
     `
   ]
 })
-export class IfBlockBehaviour implements OnInit {
+export class ConditionBlockBehaviour implements OnInit {
   @ViewChild('target', { read: ViewContainerRef })
   target: any;
+  showConditionBindingWindow: boolean = false;
   title: string;
   body: any[] = [];
   metadata: any;
@@ -63,16 +89,12 @@ export class IfBlockBehaviour implements OnInit {
 
   ) {
     this.title = 'Condition ';
-    this.metadata = new IfMetaData();
+    this.metadata = new ConditionMetaData();
   }
-
   ngOnInit() {
-    this.id = +Math.floor(Math.random() * 90000) + 10000 + '_if';
-    if (this.metadata.metadata.hasOwnProperty('servicedefination')) {
-      this.title =
-        this.metadata.metadata.servicedefination.serviceName +
-        ' ' +
-        this.metadata.metadata.servicedefination.operationName;
+    this.id = +Math.floor(Math.random() * 90000) + 10000 + '_condition';
+    if (this.body[0].instance.metadata.metadata.hasOwnProperty('conditionStatement')) {
+      this.title = this.body[0].instance.metadata.metadata.conditionStatement;
     }
   }
 
@@ -82,29 +104,28 @@ export class IfBlockBehaviour implements OnInit {
   }
 
   onDrop(event: any) {
-    if(this.metadata.defination.length > 0) {
-      if (this._eventRelationshipService.eventLogicBlockDragKey == 'EVR') {
-        event.preventDefault();
-        event.stopPropagation();
-        let componentInstance: any;
-        componentInstance = this.createComponentInstance(
-            JSON.parse(event.dataTransfer.getData('dragdata')).key
-        );
-        componentInstance.instance.metadata.parentRef = JSON.parse(JSON.stringify(this.metadata.parentRef));
-        componentInstance.instance.config = this.config;
-        componentInstance.instance.config.onRoot = false;
-        this.body.push(componentInstance);
-        this._eventRelationshipService.eventLogicBlockDragKey = '';
-      }
-    } else {
-      this._eventRelationshipService.eventLogicBlockDragKey = '';
-      this._notificationService.setNotificationData(
-          true,
-          ['Please add If Condition Definition.'],
-          'red'
+    if (this._eventRelationshipService.eventLogicBlockDragKey == 'EVR') {
+      event.preventDefault();
+      event.stopPropagation();
+      let componentInstance: any;
+      componentInstance = this.createComponentInstance(
+        JSON.parse(event.dataTransfer.getData('dragdata')).key
       );
+      componentInstance.instance.metadata.parentRef = JSON.parse(JSON.stringify(this.metadata.parentRef));
+      componentInstance.instance.config = this.config;
+      componentInstance.instance.config.onRoot = false;
+      this.body.push(componentInstance);
+      this._eventRelationshipService.eventLogicBlockDragKey = '';
     }
+  }
 
+  addBlock(key:any) {
+    let componentInstance: any;
+    componentInstance = this.createComponentInstance(key);
+    componentInstance.instance.metadata.parentRef = this.metadata.parentRef;
+    componentInstance.instance.config = this.config;
+    componentInstance.instance.config.onRoot = false;
+    this.body.push(componentInstance);
   }
 
   createComponentInstance(key: string): any {
@@ -116,16 +137,17 @@ export class IfBlockBehaviour implements OnInit {
   }
 
   removeServiceBlock() {
+    debugger;
     this._eventRelationshipService.removeLogicBlock(this.id);
   }
   getOnClick(event: any) {
-    this.title = event.serviceData;
+    this.title = event;
   }
 }
 
-export class IfMetaData extends EventNode {
+export class ConditionMetaData extends EventNode {
   constructor() {
     super();
-    this.type = 'if';
+    this.type = 'condition';
   }
 }

@@ -26,24 +26,24 @@ import {ComponentDataTypeMap} from "../../canvas-component-map/datatype.map";
                               <amexio-body>
                                   <amexio-accordion [expand-all]="true">
                                       <amexio-accordion-tab header="UI Component" active="true" class="canvas-condition-pane">
-                                         <!-- <amexio-side-nav
+                                          <amexio-side-nav
                                                   [data]="uiComponentList"
                                                   [width]="'100%'"
                                                   [position]="'relative'"
                                                   [enable-drag]="true"
                                                   [display-key]="'fieldLabel'"
                                                   (onDrag)="dragStart($event,{type:'local'})">
-                                          </amexio-side-nav>-->
+                                          </amexio-side-nav>
                                       </amexio-accordion-tab>
                                       <amexio-accordion-tab header="Service Response" active="false" class="canvas-condition-pane">
-                                         <!-- <amexio-side-nav
+                                          <amexio-side-nav
                                                   [data]="serviceResponseData"
                                                   [width]="'100%'"
                                                   [position]="'relative'"
                                                   [enable-drag]="true"
                                                   [display-key]="'fieldLabel'"
                                                   (onDrag)="dragStart($event,{type:'remote'})">
-                                          </amexio-side-nav>-->
+                                          </amexio-side-nav>
                                       </amexio-accordion-tab>
                                   </amexio-accordion>
                               </amexio-body>

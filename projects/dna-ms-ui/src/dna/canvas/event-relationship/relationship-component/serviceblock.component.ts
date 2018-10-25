@@ -9,6 +9,7 @@ import { RelationshipBlockMap } from '../../canvas-component-map/retionship.map'
 import { EventNode } from '../models/event.basemodel';
 import { EventRelationshipService } from '../../canvas-service/event-relationship.service';
 import {NotificationService} from '../../canvas-service/notification.service';
+import {IfBlockBehaviour} from "./condition.block.component";
 
 @Component({
   selector: 'service-defination-behaviour',
@@ -107,7 +108,10 @@ export class ServiceBlockBehaviour implements OnInit {
               componentInstance.instance.config = this.config;
               componentInstance.instance.config.onRoot = false;
               if (key == 'condition'){
-                  let ifComInstance = this.createComponentInstance('if', componentInstance.instance);
+                const componentFactory = this._componentFactoryResolver.resolveComponentFactory(IfBlockBehaviour);
+                const ifComInstance = componentInstance.instance.target.createComponent(componentFactory);
+
+                 // let ifComInstance = this.createComponentInstance('if', componentInstance.instance);
                   ifComInstance.instance.metadata.parentRef = JSON.parse(JSON.stringify(this.metadata.parentRef));
                   ifComInstance.instance.config = this.config;
                   ifComInstance.instance.config.onRoot = false;

@@ -12,6 +12,7 @@ import {
 import {RelationshipBlockMap} from '../canvas-component-map/retionship.map';
 import { EventRelationshipService } from '../canvas-service/event-relationship.service';
 import { SharedDataService } from '../canvas-service/shared-data.service';
+import {IfBlockBehaviour} from "./relationship-component/condition.block.component";
 
 @Component({
   selector: 'event-relationship',
@@ -84,7 +85,7 @@ import { SharedDataService } from '../canvas-service/shared-data.service';
         opacity: 0.4;
         cursor: not-allowed;
       }
-      
+
       .button-custom{
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         position: relative;
@@ -126,9 +127,9 @@ export class EventRelationShipComponent implements OnInit {
 
   lhsblock: any[] = [];
 
-  methodCount: number = 0;
+  methodCount = 0;
 
-  givenStatement: string = '';
+  givenStatement = '';
 
   @ViewChild('target', { read: ViewContainerRef })
   target: any;
@@ -251,7 +252,7 @@ export class EventRelationShipComponent implements OnInit {
   }
 
   setUpdateModeData() {
-    let localArray: any[] = [];
+    const localArray: any[] = [];
     this.selectedEventData.body.forEach((com: any) => {
       let componentInstance: any;
       componentInstance = this.createComponentInstance(com, this);
@@ -299,7 +300,7 @@ export class EventRelationShipComponent implements OnInit {
       componentInstance.instance.metadata = com;
       comRef.body.push(componentInstance);
       return componentInstance;
-    } else return null;
+    } else { return null; }
   }
 
   getMaximizeEvent(event: any) {
@@ -326,7 +327,7 @@ export class EventRelationShipComponent implements OnInit {
 
   onDrop(event: any) {
     if (this._eventRelationshipService.eventLogicBlockDragKey == 'EVR') {
-      let dragData = JSON.parse(event.dataTransfer.getData('dragdata'));
+      const dragData = JSON.parse(event.dataTransfer.getData('dragdata'));
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
@@ -344,8 +345,11 @@ export class EventRelationShipComponent implements OnInit {
         'eventName'
       ] = this.selectedEventData.eventName;
 
-      if(dragData.key == 'condition') {
-        this.createComponentInstanceOnDrop('if', comInstance.instance);
+      if (dragData.key == 'condition') {
+        debugger;
+        const componentFactory = this._componentFactoryResolver.resolveComponentFactory(IfBlockBehaviour);
+        const componentInstance = comInstance.instance.target.createComponent(componentFactory);
+        comInstance.instance.body.push(componentInstance);
       }
       this.selectedEventData.body.push(comInstance);
       this._eventRelationshipService.eventLogicBlockDragKey = '';
@@ -353,8 +357,6 @@ export class EventRelationShipComponent implements OnInit {
   }
 
   createComponentInstanceOnDrop(key: any, comRef: any): any {
-    console.log(key);
-    debugger;
     const componentFactory = this._componentFactoryResolver.resolveComponentFactory(
       RelationshipBlockMap.Block_MAP[key]
     );
@@ -368,7 +370,7 @@ export class EventRelationShipComponent implements OnInit {
   }
 
   backToCanvas() {
-    let localArrayData: any[] = [];
+    const localArrayData: any[] = [];
     this.parseEventData(
       this._eventRelationshipService.relationshipRef.body,
       localArrayData

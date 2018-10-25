@@ -2,10 +2,10 @@ import { ServiceBlockBehaviour } from '../event-relationship/relationship-compon
 import { UpdateModelBlockBehaviour } from '../event-relationship/relationship-component/updatemodelBlock.component';
 import { NotificationBlockBehaviour } from '../event-relationship/relationship-component/notificationblock.component';
 import { NavigateBlockBehaviour } from '../event-relationship/relationship-component/navigateblock.component';
-import {IfBlockBehaviour} from '../event-relationship/relationship-component/ifblock.component';
 import {ElseIfBlockBehaviour} from '../event-relationship/relationship-component/elseIfblock.component';
 import {ElseBlockBehaviour} from '../event-relationship/relationship-component/elseblock.component';
-import {ConBehaviourComponent} from '../event-relationship/relationship-component/conblock.component';
+import {ConditionBlockBehaviour} from "../event-relationship/relationship-component/ifblock.component";
+import {IfBlockBehaviour} from "../event-relationship/relationship-component/condition.block.component";
 /**
  * Created by dattaram on 25/6/18.
  */
@@ -15,10 +15,10 @@ export namespace RelationshipBlockMap {
     updatemodel: UpdateModelBlockBehaviour,
     navigate: NavigateBlockBehaviour,
     notify: NotificationBlockBehaviour,
-    condition: ConBehaviourComponent,
-    if: IfBlockBehaviour,
+    condition: ConditionBlockBehaviour,
     elseif: ElseIfBlockBehaviour,
-    else: ElseBlockBehaviour
+    else: ElseBlockBehaviour,
+    if: IfBlockBehaviour
   };
   export const Component_Restrict: any = {
     button: true,

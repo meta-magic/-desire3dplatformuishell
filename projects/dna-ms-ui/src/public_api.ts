@@ -5,14 +5,12 @@
 
 /* CANVAS COMPONENT EXPORTS */
 
-export * from './dna/canvas/event-relationship/relationship-component/conblock.component';
-
-export * from './dna/canvas/event-relationship/relationship-component/conditionblock.component';
-export *  from './dna/canvas/event-relationship/relationship-component/elseblock.component';
-export *  from './dna/canvas/event-relationship/relationship-component/elseIfblock.component';
+export * from './dna/canvas/event-relationship/relationship-component/condition.block.component';
+export * from './dna/canvas/event-relationship/relationship-component/elseblock.component';
+export * from './dna/canvas/event-relationship/relationship-component/elseIfblock.component';
 export * from './dna/canvas/event-relationship/relationship-component/ifblock.component';
-export *  from './dna/canvas/event-relationship/condition/condition.tree.component';
-export *  from './dna/canvas/event-relationship/condition/condition.component';
+export * from './dna/canvas/event-relationship/condition/condition.tree.component';
+export * from './dna/canvas/event-relationship/condition/condition.component';
 
 
 export  * from './dna/preview/livecodecomponent';
@@ -248,3 +246,5 @@ export * from './dna/menu-builder/menu.builder.component';
 
 /* MODULE */
 export * from './dna/dna-ms-ui.module';
+
+export * from './dna/canvas/canvas-component-map/retionship.map';
