@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'platform-commons';
 import { NotificationService } from 'platform-commons';
@@ -7,181 +7,179 @@ import { LoaderService } from 'platform-commons';
 import { Router, ActivatedRoute } from '@angular/router';
 import {CookieService} from "ngx-cookie-service";
 @Component({
-  selector: 'project-create-1',
+  selector: 'project-create',
   template: `
-    <amexio-row>
-      <amexio-column [size]="3" [fit]="true">
-        <amexio-card  [header]="false" [footer]="true" [footer-align]="'right'" [body-height]="80">
-          <amexio-body [padding]="'0px'">
-            <amexio-listbox [enable-checkbox]="false"
-                            [header]="'Projects'"
-                            [search-placeholder]="'Search'"
-                            [data]="projectList"
-                            [filter]="true"
-                            [data-reader]="'response'"
-                            [display-field]="'projectName'"
-                            [border]="'none'"
-                            (onRowClick)="onProjectSelect($event)">
-            </amexio-listbox>
-          </amexio-body>
-          <amexio-action>
-            <amexio-button
-              [label]="'New'"
-              [type]="'secondary'"
-              [tooltip]="'New'"
-              [size]="'default'"
-              [icon]="'fa fa-plus fa-lg'"
-              (onClick)="openProjectUi()">
-            </amexio-button>
-          </amexio-action>
-        </amexio-card>
-      </amexio-column>
-      <amexio-column [size]="9" [fit]="true">
-        <ng-container *ngIf="showCard">
-          <div class="loadingnav" *ngIf="loaderService.isLoading"></div>
-          <amexio-form [form-name]="'validateForm'"  [body-height]="80" [header]="true" [show-error]="true" [footer-align]="'right'">
+  <amexio-row>
+    <amexio-column [size]="3">
+   <amexio-card  [header]="false" [footer]="true" [footer-align]="'right'"  [body-height]="80">
+    <amexio-body [padding]="'0px'">
+     <amexio-listbox [enable-checkbox]="false"
+                [header]="'Projects'"
+                [search-placeholder]="'Search'"
+                [data]="projectList"
+                [filter]="true"
+                [data-reader]="'response'"
+                [display-field]="'projectName'"
+                [border]="'none'"
+                (onRowClick)="onProjectSelect($event)">
+</amexio-listbox>
+</amexio-body>
+<amexio-action>
+ <amexio-button
+    [label]="'New'"
+    [type]="'secondary'"
+    [tooltip]="'New'"
+    [size]="'default'"
+    [icon]="'fa fa-plus fa-lg'"
+    (onClick)="openProjectUi()">
+    </amexio-button>
+</amexio-action>
+</amexio-card>
+    </amexio-column>
+  <amexio-column [size]="9">
+  <ng-container *ngIf="showCard">
+   <div class="loadingnav" *ngIf="loaderService.isLoading"></div>
+ <amexio-form [form-name]="'validateForm'"  [body-height]="80" [header]="true" [show-error]="true" [footer-align]="'right'">
 
-            <amexio-form-header>
-              Project Creation
-            </amexio-form-header>
-            <amexio-form-body>
-              <amexio-row>
-                <amexio-column [size]="6">
-                  <amexio-text-input  [(ngModel)]="projectCreationModel.projectName" [field-label]="'Name'" name ="projectCreationModel.projectName"
-                                      [place-holder]="'Enter Name'"
-                                      [enable-popover]="true"
-                                      [min-length]="3" [max-length]="128"
-                                      [min-error-msg]="'Minimun 3  characters project name required'"
-                                      [max-error-msg]="'Maximun 128 characters  project name allowed'"
-                                      [allow-blank]="false"
-                                      error-msg="Please enter project name"
-                                      [icon-feedback]="true"
-                                      [disabled]="disblefields">
-                  </amexio-text-input>
-                </amexio-column>
-                <amexio-column [size]="6">
-                  <amexio-textarea-input [field-label]="'Description'" name ="projectCreationModel.projectDescription"
-                                         [place-holder]="'Enter Description'"
-                                         [icon-feedback]="true"
-                                         [allow-blank]="false"
-                                         error-msg="Please enter  project description"
-                                         [enable-popover]="true"
-                                         [rows]="'2'"
-                                         [columns]="'1'"
-                                         [disabled]="disblefields"
-                                         [(ngModel)]="projectCreationModel.projectDescription">
-                  </amexio-textarea-input>
-                </amexio-column>
+    <amexio-form-header>
+             Project Creation
+    </amexio-form-header>
+<amexio-form-body>
+                           <amexio-row>
+        <amexio-column [size]="6">
+          <amexio-text-input  [(ngModel)]="projectCreationModel.projectName" [field-label]="'Name'" name ="projectCreationModel.projectName"
+                            [place-holder]="'Enter Name'"
+                            [enable-popover]="true"
+                            [min-length]="3" [max-length]="128"
+                             [min-error-msg]="'Minimun 3  characters project name required'"
+                             [max-error-msg]="'Maximun 128 characters  project name allowed'"
+                            [allow-blank]="false"
+                            error-msg="Please enter project name"
+                            [icon-feedback]="true"
+                            [disabled]="disblefields">
+          </amexio-text-input>
+        </amexio-column>
+        <amexio-column [size]="6">
+          <amexio-textarea-input [field-label]="'Description'" name ="projectCreationModel.projectDescription"
+                          [place-holder]="'Enter Description'"
+                          [icon-feedback]="true"
+                           [allow-blank]="false"
+                            error-msg="Please enter  project description"
+                            [enable-popover]="true"
+                           [rows]="'2'"
+                           [columns]="'1'"
+                          [disabled]="disblefields"
+                          [(ngModel)]="projectCreationModel.projectDescription">
+          </amexio-textarea-input>
+        </amexio-column>
+<ng-container *ngIf="!portDisableFlag">
+         <amexio-column [size]="12">
 
-                <ng-container *ngIf="!portDisableFlag">
-                  <amexio-column [size]="12">
-
-                    Server Port:{{serverPort}}
-                  </amexio-column>
+         Server Port:{{serverPort}}
+        </amexio-column>
                 </ng-container>
                 <amexio-column [size]="12">
-                  <amexio-label >Material themes</amexio-label>
-                </amexio-column>
-              </amexio-row>
-              <amexio-row>
+         <amexio-label >Material themes</amexio-label>
+         </amexio-column>
+       </amexio-row>
+        <amexio-row>
                 <amexio-column [size]="4" *ngFor="let col of materialthemes">
-                  <div class="proj-ui">
-                    <amexio-card [header]="true"
-                                 [footer]="false"
-                                 [show]="true"
-                                 [header-align]="'left'">
-                      <amexio-header>
-                        <div *ngIf="showThemeFlag">
-                          <amexio-radio-group
-                            name ="projectCreationModel.themeUUID"
-                            [display-field]="'themesName'"
-                            [allow-blank]="true"
-                            [value-field]="'themeUUID'"
-                            [data]="col.radioGroupData"
-                            [(ngModel)]="projectCreationModel.themeUUID"
-                            (onSelection)="setTheme(col)" style="display: inline;">
-                          </amexio-radio-group>
-                        </div>
-                      </amexio-header>
-                      <amexio-body>
-                        <amexio-image [path]="'assets/images/theme-icons/'+col.themesIcon"></amexio-image> <br/>
-                      </amexio-body>
-                    </amexio-card>
-                  </div>
-                </amexio-column>
-              </amexio-row>
-
-            </amexio-form-body>
-            <amexio-form-action>
-              <ng-container *ngIf="!showUpadteBtn">
-                <amexio-button
-                  [label]="'Cancel'"
-                  [type]="'secondary'"
-                  [tooltip]="'Cancel'"
-                  [size]="'default'"
-                  [icon]="'fa fa-close'"
-                  (onClick)="cancelProject()">
-                </amexio-button>
-              </ng-container>
-              <ng-container *ngIf="showUpadteBtn">
-                <amexio-button
-                  [label]="'Update'"
-                  [loading]="asyncFlag"
-                  [type]="'primary'"
-                  [tooltip]="'Update'"
-                  [disabled]="disableUpdateBtn"
-                  [size]="'default'"
-                  [icon]="'fa fa-save'"
-                  (onClick)="onUpdate()">
-                </amexio-button>
-              </ng-container>
-              <ng-container *ngIf="!showUpadteBtn">
-                <amexio-button
-                  [label]="'Save'"
-                  [loading]="asyncFlag"
-                  [type]="'primary'"
-                  [tooltip]="'Save'"
-                  [size]="'default'"
-                  [icon]="'fa fa-save'"
-                  [disabled]="false"
-                  [form-bind]="'validateForm'"
-                  (onClick)="ValidateAndSave()">
-                </amexio-button>
-              </ng-container>
-            </amexio-form-action>
-
-          </amexio-form>
-
-        </ng-container>
-        <ng-container *ngIf="!showCard">
-          <amexio-card [header]="true"
-                       [footer]="false"
-                       [show]="true"
-                       [footer-align]="'right'"
-                       [body-height]="80">
+                <div class="proj-ui">
+ <amexio-card [header]="true"
+                [footer]="false"
+                [show]="true"
+                [header-align]="'left'">
             <amexio-header>
-              Help Document
-            </amexio-header>
-            <amexio-body>
-            </amexio-body>
-          </amexio-card>
-        </ng-container>
-      </amexio-column>
-      <!--<amexio-dialogue [show-dialogue]="confirmdialogue"
-                   [title]="'Confirm'"
-                   [message]="'Do you want to view created project status?'"
-                   [message-type]="'confirm'"
-                   [type]="'confirm'"
-                   (actionStatus)="checkStatus($event)"
-                   (close)="confirmdialogue = !confirmdialogue">
-    </amexio-dialogue>-->
+            <div *ngIf="showThemeFlag">
+            <amexio-radio-group
+                name ="projectCreationModel.themeUUID"
+                [display-field]="'themesName'"
+                [allow-blank]="true"
+                [value-field]="'themeUUID'"
+                [data]="getThemes(col)"
+                [default-value]="projectCreationModel.themeUUID"
+                (onSelection)="setTheme(col)" style="display: inline;">
+           </amexio-radio-group>
+                      </div>
+                    </amexio-header>
+                    <amexio-body>
+                            <amexio-image [path]="'assets/images/theme-icons/'+col.themesIcon"></amexio-image> <br/>
+                    </amexio-body>
+                </amexio-card>
+                </div>
+  </amexio-column>
+            </amexio-row>
 
-      <!--<project-notification></project-notification>-->
+ </amexio-form-body>
+   <amexio-form-action>
+    <ng-container *ngIf="!showUpadteBtn">
+     <amexio-button
+    [label]="'Cancel'"
+    [type]="'secondary'"
+    [tooltip]="'Cancel'"
+    [size]="'default'"
+    [icon]="'fa fa-close'"
+    (onClick)="cancelProject()">
+    </amexio-button>
+    </ng-container>
+     <ng-container *ngIf="showUpadteBtn">
+    <amexio-button
+    [label]="'Update'"
+    [loading]="asyncFlag"
+    [type]="'primary'"
+    [tooltip]="'Update'"
+    [disabled]="disableUpdateBtn"
+    [size]="'default'"
+    [icon]="'fa fa-save'"
+    (onClick)="onUpdate()">
+    </amexio-button>
+     </ng-container>
+          <ng-container *ngIf="!showUpadteBtn">
+    <amexio-button
+    [label]="'Save'"
+    [loading]="asyncFlag"
+    [type]="'primary'"
+    [tooltip]="'Save'"
+    [size]="'default'"
+    [icon]="'fa fa-save'"
+    [disabled]="false"
+    [form-bind]="'validateForm'"
+    (onClick)="ValidateAndSave()">
+    </amexio-button>
+    </ng-container>
+</amexio-form-action>
 
-    </amexio-row>
+ </amexio-form>
 
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  </ng-container>
+   <ng-container *ngIf="!showCard">
+                <amexio-card [header]="true"
+                [footer]="false"
+                [show]="true"
+                [footer-align]="'right'"
+                [body-height]="80">
+                    <amexio-header>
+                     Help Document
+                    </amexio-header>
+                    <amexio-body>
+                    </amexio-body>
+                </amexio-card>
+                </ng-container>
+  </amexio-column>
+  <!--<amexio-dialogue [show-dialogue]="confirmdialogue"
+               [title]="'Confirm'"
+               [message]="'Do you want to view created project status?'"
+               [message-type]="'confirm'"
+               [type]="'confirm'"
+               (actionStatus)="checkStatus($event)"
+               (close)="confirmdialogue = !confirmdialogue">
+</amexio-dialogue>-->
+
+<project-notification></project-notification>
+   
+</amexio-row>
+
+  `
 })
 export class CreateProjectComponent implements OnInit {
   projectCreationModel: ProjectCreationModel;
@@ -226,10 +224,8 @@ export class CreateProjectComponent implements OnInit {
     this.getProjectList();
   }
 
-  ngOnInit() {
-    console.log('project ngOnInit');
-  }
-  private getThemes(col: any): any[] {
+  ngOnInit() {}
+  getThemes(col: any): any[] {
     let themearray: any = [];
     themearray.push(col);
     return themearray;
@@ -252,7 +248,6 @@ export class CreateProjectComponent implements OnInit {
       () => {
         if (projectDataList.success) {
           this.projectList = projectDataList;
-          this._cdf.detectChanges();
         } else {
           this.validationMsgArray.push(projectDataList.errorMessage);
           // this.isValidateForm = true;
@@ -571,7 +566,6 @@ export class CreateProjectComponent implements OnInit {
           themesIcon: obj.themesIcon,
           themeType: obj.themeType
         };
-        obj1['radioGroupData'] = this.getThemes(obj1);
         this.amexioThemes.push(obj1);
       } else {
         const obj2 = {
@@ -581,7 +575,6 @@ export class CreateProjectComponent implements OnInit {
           themesIcon: obj.themesIcon,
           themeType: obj.themeType
         };
-        obj2['radioGroupData'] = this.getThemes(obj2);
         this.materialthemes.push(obj2);
       }
     });

@@ -176,8 +176,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     checkCookie = this.cookieService.get('tokenid');
     if (checkCookie) {
       let title = "Project Creation";
+      if (!navTab.setActiveTab(title)) {
         let cmp = navTab.addDynamicTab(title, "black", true, RouteComponent);
         cmp.navigate("home/project/create");
+      }
     } else {
       this.sessiondialogue = true;
       this.sessionMsg = 'Session time out, Please login again';
@@ -222,12 +224,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // this.navTab.setActiveTab(1);
     checkCookie = this.cookieService.get('tokenid');
     if (checkCookie) {
-
-      this._route.navigate([event.data.node.routerLink]);
       if (event.data.node.isLeaf) {
         if (event.data.node.isProjectDependent) {
           if (this.projectSelectedFlag) {
-            this.createTab(navTab, event);
+            this.createTab(navTab, event)
           } else {
             this.msgData.push("Please select/create project ");
             this._notificationService.showWarningData(this.msgData);
