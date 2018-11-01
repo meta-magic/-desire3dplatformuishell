@@ -4,10 +4,9 @@ import { LocalStorageService } from 'platform-commons';
 import { NotificationService } from 'platform-commons';
 import { MessagingService } from 'platform-commons';
 import { LoaderService } from 'platform-commons';
-import { Router, ActivatedRoute } from '@angular/router';
-import {CookieService} from "ngx-cookie-service";
+import {CookieService} from 'ngx-cookie-service';
 @Component({
-  selector: 'project-create-1',
+  selector: 'project-create',
   template: `
     <amexio-row>
       <amexio-column [size]="3" [fit]="true">
@@ -84,7 +83,7 @@ import {CookieService} from "ngx-cookie-service";
                 </amexio-column>
               </amexio-row>
               <amexio-row>
-                <amexio-column [size]="4" *ngFor="let col of materialthemes">
+                <amexio-column [size]="4" *ngFor="let theme of materialthemes">
                   <div class="proj-ui">
                     <amexio-card [header]="true"
                                  [footer]="false"
@@ -167,17 +166,6 @@ import {CookieService} from "ngx-cookie-service";
           </amexio-card>
         </ng-container>
       </amexio-column>
-      <!--<amexio-dialogue [show-dialogue]="confirmdialogue"
-                   [title]="'Confirm'"
-                   [message]="'Do you want to view created project status?'"
-                   [message-type]="'confirm'"
-                   [type]="'confirm'"
-                   (actionStatus)="checkStatus($event)"
-                   (close)="confirmdialogue = !confirmdialogue">
-    </amexio-dialogue>-->
-
-      <!--<project-notification></project-notification>-->
-
     </amexio-row>
 
   `,
@@ -185,27 +173,27 @@ import {CookieService} from "ngx-cookie-service";
 })
 export class CreateProjectComponent implements OnInit {
   projectCreationModel: ProjectCreationModel;
-  asyncFlag: boolean = false;
+  asyncFlag = false;
   serverPort: any;
   newTokenid: string;
   msgData: any = [];
   // projectUUID: string;
   validationMsgArray: any = [];
   // isValidateForm: boolean = false;
-  portDisableFlag: boolean = true;
+  portDisableFlag = true;
   themes: any;
   amexioThemes: any;
   materialthemes: any;
   projectList: any;
-  showCard: boolean = false;
+  showCard = false;
   projectId: string;
-  disblefields: boolean = false;
-  showUpadteBtn: boolean = false;
+  disblefields = false;
+  showUpadteBtn = false;
   disableUpdateBtn: boolean;
   confirmdialogue: boolean;
   themeID: any;
-  showThemeFlag: boolean = true;
-  isLoading: boolean = false;
+  showThemeFlag = true;
+  isLoading = false;
   migrationStatusDialogue = false;
   constructor(
     private http: HttpClient,
@@ -214,8 +202,6 @@ export class CreateProjectComponent implements OnInit {
     public loaderService: LoaderService,
     private msgService: MessagingService,
     public _notificationService: NotificationService,
-    private route: ActivatedRoute,
-    private _route: Router,
     private _cdf: ChangeDetectorRef
   ) {
     this.projectCreationModel = new ProjectCreationModel();
@@ -226,16 +212,14 @@ export class CreateProjectComponent implements OnInit {
     this.getProjectList();
   }
 
-  ngOnInit() {
-    console.log('project ngOnInit');
-  }
+  ngOnInit() {}
   private getThemes(col: any): any[] {
-    let themearray: any = [];
+    const themearray: any = [];
     themearray.push(col);
     return themearray;
   }
 
-  //GET PROJECT LIST OF LOGGED IN USER
+  // GET PROJECT LIST OF LOGGED IN USER
   getProjectList() {
     this.validationMsgArray = [];
     let projectDataList: any;
@@ -279,14 +263,13 @@ export class CreateProjectComponent implements OnInit {
     }
   }
 
-  //GET PROJECT DETAILS OF SELECTED PROJECT IN READ ONLY FORM
+  // GET PROJECT DETAILS OF SELECTED PROJECT IN READ ONLY FORM
   onProjectSelect(event: any) {
     this.loaderService.showLoader();
     this.validationMsgArray = [];
     let selectProject: any;
     this.themeID = '';
     this.showThemeFlag = false;
-    // this.projectCreationModel = new ProjectCreationModel();
     const projectUUID = event.projectUUID;
     this.http
       .get('/api/project/project/selectProject?projectUUID=' + projectUUID)
@@ -333,7 +316,7 @@ export class CreateProjectComponent implements OnInit {
       );
   }
 
-  //Set Theme
+  // Set Theme
   setTheme(col: any) {
     this.projectCreationModel.themeUUID = col.themeUUID;
     if (this.themeID == this.projectCreationModel.themeUUID) {
@@ -343,19 +326,19 @@ export class CreateProjectComponent implements OnInit {
     }
   }
 
-  //To close Window
+  // To close Window
   // okErrorBtnClick() {
   //   this.isValidateForm = false;
   //   this.validationMsgArray = [];
   // }
 
-  //Reset Project Data
+  // Reset Project Data
   cancelProject() {
     this.projectCreationModel = new ProjectCreationModel();
   }
   createInvalidCompErrorData() {
-    let errorData: any[] = [];
-    let errorObj: any = {};
+    const errorData: any[] = [];
+    const errorObj: any = {};
     errorObj['data'] = [];
     errorObj.data = this.validationMsgArray;
     errorData.push(errorObj);
@@ -363,8 +346,8 @@ export class CreateProjectComponent implements OnInit {
   }
 
   createErrorData() {
-    let errorData: any[] = [];
-    let errorObj: any = {};
+    const errorData: any[] = [];
+    const errorObj: any = {};
     errorObj['data'] = [];
     errorObj.data = this.validationMsgArray;
     errorData.push(errorObj);
@@ -414,7 +397,7 @@ export class CreateProjectComponent implements OnInit {
     );
   }
 
-  //UI CREATED EVENT ADDED
+  // UI CREATED EVENT ADDED
   uiCreatedEvent(string: any) {
     window.postMessage(string, window.location.origin);
   }
@@ -439,7 +422,7 @@ export class CreateProjectComponent implements OnInit {
       this.saveProjectCreation();
     }
   }
-  //Save Method to create Project
+  // Save Method to create Project
   saveProjectCreation() {
     let response: any;
     this.asyncFlag = true;

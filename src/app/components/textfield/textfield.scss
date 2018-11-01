@@ -1,0 +1,58 @@
+.inputgroup {
+    position: relative;
+
+    .fieldlabel{
+        position: relative;
+    }
+
+    .input-container{
+        width: 100%;
+        //padding: .375rem 0;
+        border-bottom: 1px solid #ced4da;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; 
+        font-size: 1rem;  
+        background-color: white;
+        color: black;
+        display: inline-flex;
+
+        .input-control{
+            width: 100%;
+            outline: none;
+            border-radius: 0px;
+            border: none;
+            line-height: 2;
+            padding: 0px 5px;
+        }
+
+        em{
+            line-height: 2;
+        }
+    }
+
+    .input-container:focus-within{
+        border-bottom: 1px solid blue;
+    }
+
+    .input-error {
+        border-color: red !important;
+    }
+    
+    .icon-error{
+        color: red;
+    }
+
+    .input-disabled {
+        opacity: 0.5;
+    }
+
+    
+}
+ 
+
+::placeholder {
+    color: #ced4da;
+    font-size: 0.75rem;
+}
+
+
+

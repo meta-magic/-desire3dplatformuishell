@@ -63,11 +63,14 @@ export class CanvasTextInputComponent extends CanvasWidgetClass
   }
 
   ngOnInit() {
+    console.log('canvas ngOnInit');
+
     this.componentId =
       +Math.floor(Math.random() * 90000) + 10000 + '_' + this.name;
   }
   @HostListener('document:click')
   onWindowClick() {
+    console.log('canvas textinput');
     this.showContextMenu = false;
   }
   getContextMenuStyle() {

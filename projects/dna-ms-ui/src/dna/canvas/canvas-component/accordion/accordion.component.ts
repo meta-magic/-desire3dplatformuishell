@@ -10,7 +10,6 @@ import {
 import { DragDropEventService } from '../../canvas-service/dragdrop.event.service';
 import { CanvasWidgetClass } from '../../canvas-models/canvas.widget.class';
 import { EventHandlerService } from '../../canvas-service/event.service';
-import { PropertyMap } from '../../canvas-component-map/properties.map';
 import { AccordionTabComponent } from '../../local-components/accordion/accordion.pane';
 
 @Component({
@@ -73,6 +72,7 @@ export class CanvasAccordionContainerComponent extends CanvasWidgetClass
   }
   @HostListener('document:click')
   onWindowClick() {
+    console.log('accordian');
     this.showContextMenu = false;
   }
   getContextMenuStyle() {
