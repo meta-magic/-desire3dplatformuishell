@@ -13,7 +13,7 @@ import { RestCallService } from '../../canvas-service/restcall.service';
       <amexio-body>
           <amexio-row>
             <amexio-column [size]="12">
-              <amexio-treeview [data]="uiList"
+              <amexio-treeview  [http-url]="'/api/dna/design/findAll'" [http-method]="'get'" [data-reader]="'response'"
                                (nodeClick)="onOpenUI($event)">
               </amexio-treeview>
             </amexio-column>
@@ -30,7 +30,7 @@ export class OpenUIComponent implements OnInit {
   constructor(public _restCallService: RestCallService) {}
 
   ngOnInit() {
-    this.getUIData();
+   // this.getUIData();
   }
 
   getUIData() {

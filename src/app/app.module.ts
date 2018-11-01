@@ -6,6 +6,8 @@ import {AmexioFormsModule, AmexioPaneModule, AmexioWidgetModule} from 'amexio-ng
 import {FormsModule} from '@angular/forms';
 import {AppRouting} from './app.routing';
 import {PlatformCommonsModule} from 'platform-commons';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {CommonHttpInterceptor} from "./http-interceptor/platform.http.interceptor";
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import {PlatformCommonsModule} from 'platform-commons';
   imports: [
     BrowserModule,  FormsModule, PlatformCommonsModule.forRoot(),
     AppRouting,
+    HttpClientModule,
     AmexioWidgetModule, AmexioFormsModule, AmexioPaneModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS, useClass: CommonHttpInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

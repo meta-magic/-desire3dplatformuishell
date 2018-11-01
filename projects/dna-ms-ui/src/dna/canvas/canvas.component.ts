@@ -19,8 +19,7 @@ import { EditorStateService } from './canvas-service/editor.state';
 import { DragDropEventService } from './canvas-service/dragdrop.event.service';
 import { ValidationMap } from './canvas-component-map/dradrop-validation-map';
 import { LoaderService, LocalStorageService } from 'platform-commons';
-import { MessagingService } from 'platform-commons';
-import { NotificationService } from './canvas-service/notification.service';
+import { MessagingService, NotificationService } from 'platform-commons';
 import { SharedDataService } from './canvas-service/shared-data.service';
 import { BehaviourMap } from './canvas-component-map/behaviour.map';
 import { RelationshipBlockMap } from './canvas-component-map/retionship.map';
@@ -291,7 +290,7 @@ import { ModelMapComponent } from './canvas-sub-UI/model-mapping/model.mapping.c
                            [auto-dismiss-msg]="true"
                            [auto-dismiss-msg-interval]="4000">
       </amexio-notification>
-    <canvas-notification></canvas-notification>
+   <!-- <canvas-notification></canvas-notification>-->
     
     
     <amexio-dialogue  [(show)]="showMenuBuliderDialogue"
@@ -613,11 +612,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     this._eventHndl.reflectModelChangeInComponent(this.children);
     this.canvasUI.metadata.modelInfo.models.push(response.response);
     this.modelComponent.updateModelList(response.response);
-    this._notificationService.setNotificationData(
-      true,
-      [response.successMessage],
-      'green'
-    );
+    this._notificationService.setSuccessData(response.successMessage);
     this.disabledMapButton = false;
     this._eventHndl.showCreateModel = false;
     this.loaderService.hideLoader();
@@ -637,11 +632,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
   createModelFails(response: any) {
     this.loaderService.hideLoader();
     this._eventHndl.isModelBinded = false;
-    this._notificationService.setNotificationData(
-      true,
-      [response.errorMessage],
-      'red'
-    );
+    this._notificationService.setErrorData(response.errorMessage);
     this._eventHndl.showCreateModel = true;
   }
 
@@ -693,11 +684,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
                 this.canvasUI.id = data.response.id;
               }
             }
-            this._notificationService.setNotificationData(
-              true,
-              [data.successMessage],
-              'green'
-            );
+            this._notificationService.setSuccessData(data.successMessage);
 
             if(menuBuilderStatus){
               this.showMenuBuliderDialogue = true;

@@ -54,7 +54,7 @@ import { EventHandlerService } from '../../canvas-service/event.service';
             </amexio-card>
           </amexio-column>
           <amexio-column [size]="'6'">
-            <amexio-datagrid [enable-title-bar]="false" [data]="componentList" [height]="280"
+            <amexio-datagrid  [data]="componentList" [height]="280"
                              [page-size]="10" >
               <amexio-data-table-column [sort]="false" [data-index]="'name'" [data-type]="'string'" [hidden]="false" [text]="'Component Fields'">
               </amexio-data-table-column>

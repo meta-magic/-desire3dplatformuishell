@@ -14,7 +14,6 @@ import { NotificationService } from './notification.service';
 import { SharedDataService } from './shared-data.service';
 import { BehaviourMap } from '../canvas-component-map/behaviour.map';
 import { PropertyMap } from '../canvas-component-map/properties.map';
-import { any } from 'codelyzer/util/function';
 
 @Injectable()
 export class EventHandlerService {

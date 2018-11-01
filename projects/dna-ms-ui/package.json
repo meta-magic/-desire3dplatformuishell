@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/core": "^7.0.0",
+    "amexio-ng-extensions": "file:../../amexio/5.3/amexio.github.io/dist/amexio-ng-extensions-5.3.1.tgz"
+
   }
 }
