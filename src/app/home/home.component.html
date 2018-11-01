@@ -13,6 +13,10 @@
     </amexio-nav>
 </div>
 
+<!--<amexio-button [label]="'add tab'" (onClick)="onNavLinkclick(navTab)">
+
+</amexio-button>-->
+
 <amexio-window [show-window]="showVersionWindow"
                [closable]="true"
                type="window"
@@ -114,21 +118,11 @@
         <div class="route-container">
             <div class="loadingnav" *ngIf="isRouteLoading">Loading&#8230;</div>
             <div class="route">
-                <amexio-tab-view #navTab [closable]="false" [tab-position]="'top'" [header-align]="'left'">
-                    <amexio-tab title="Home" [active]="true" [amexio-color]="'black'">
-                       <!-- <amexio-row>
-                           <amexio-column [size] ="4">
+             <!-- <project-create></project-create><br>
 
-                           </amexio-column>
-                           <amexio-column [size] ="6">
-                              &nbsp; <amexio-label
-                                    size="small">
-                                        For latest feature check <a style=" cursor: pointer; text-decoration: underline;" (click)="goToHelp(navTab)">Feature Section</a> in help.
-                               </amexio-label>
-                           </amexio-column>
-                            <amexio-column [size] ="2">
-                           </amexio-column>
-                       </amexio-row> -->
+              <router-outlet></router-outlet>-->
+                <amexio-tab-view #navTab [closable]="false" [tab-position]="'top'" [header-align]="'left'">
+                    <amexio-tab title="project" [active]="true" [amexio-color]="'black'">
                         <amexio-row>
                             <amexio-column [size]="4">
                                 <amexio-card [header]="false" [footer]="false" [footer-align]="'center'">
@@ -300,9 +294,12 @@
                             </amexio-column>
                         </amexio-row>
                     </amexio-tab>
-                    <amexio-tab title="Help Center" [active]="false" [amexio-color]="'black'">
+                    <amexio-tab title="model binding" [active]="false" [amexio-color]="'black'">
                         <help-component></help-component>
                     </amexio-tab>
+
+
+
                 </amexio-tab-view>
             </div>
         </div>
